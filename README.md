@@ -15,3 +15,8 @@ You need to hit "Run" on top the code editor to start the application.
 Then you can choose all parameters according to your requirements on the application interface next to the map.
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/github2.png">
+
+
+
+
+Further information on how to work with Google Earth Engine and website construction can be found in the Earth Engine guides ( [Get Started with Earth Engine](https://developers.google.com/earth-engine/guides/getstarted) , [Earth Engine Code Editor](https://developers.google.com/earth-engine/guides/playground) , [Exporting images](https://developers.google.com/earth-engine/guides/exporting_images) ).
