@@ -8,7 +8,7 @@ If you follow that link, you can open the application in Google Earth Engine's c
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/1_open_app.png">
 
-You need to hit "Run" on top the code editor to start the application.
+You need to hit "Run" on top the code editor to start the application. 
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/github1.png">
 
