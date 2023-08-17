@@ -8,13 +8,24 @@ If you follow that link, you can open the application in Google Earth Engine's c
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/1_open_app.PNG">
 
-You need to hit "Run" on top the code editor to start the application. 
+If the application interface does not appear next to the map, you need to hit "Run" on top the code editor to start the application. 
 
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/github1.png">
 
 Then you can choose all parameters according to your requirements on the application interface next to the map.
 
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/github2.png">
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/2_choose_parameters.PNG">
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/3_choose_parameters.PNG">
+
+When hitting the export button, two image collections will appear in the *Console* tab in the upper-right window and can be further inspected. The first one includes all single images that are filtered according to your input, the second one includes the composites that can be exported (in this case only one aggregated scene).
+
+To initiate the final export to the your Google Drive, you must go to the *Tasks* tab and click "Run" at each image (in this case only one). A pop-up window will appear, where you can further modify the name, coordinate system, or scale. It might be helpful to add the name of the study area or other characteristic parameters to not get confused later on. 
+
+
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/4_export.PNG">
+
+
+
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/5_visualization.PNG">
 
 
 
