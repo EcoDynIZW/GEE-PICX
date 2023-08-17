@@ -19,4 +19,7 @@ Then you can choose all parameters according to your requirements on the applica
 
 
 
-Further information on how to work with Google Earth Engine and website construction can be found in the Earth Engine guides ([Get Started with Earth Engine](https://developers.google.com/earth-engine/guides/getstarted), [Earth Engine Code Editor](https://developers.google.com/earth-engine/guides/playground), [Exporting Images](https://developers.google.com/earth-engine/guides/exporting_images)).
+Further information on how to work with Google Earth Engine and website construction can be found in the Earth Engine guides.
+* [Get Started with Earth Engine](https://developers.google.com/earth-engine/guides/getstarted)
+* [Earth Engine Code Editor](https://developers.google.com/earth-engine/guides/playground)
+* [Exporting Images](https://developers.google.com/earth-engine/guides/exporting_images)).
