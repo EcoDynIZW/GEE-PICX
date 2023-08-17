@@ -29,6 +29,18 @@ To initiate the final export to the your Google Drive, you must go to the *Tasks
 
 
 
+
+
+
+
+
+Figure S1: A: GEE-PICX application interface in Code Editor mode when opening script link. Parameters can be modified by the user in the grey box on the map. B: Visualization of NDVI band of GEE-PICX products on the map. Modification of layer visualization parameters can be applied in the layer panel box on the map (setting icon).
+
+Figure S2: A: Inspect single image collection as well as aggregated image collection for export in the Console tab (upper-right window). The image collections appear in the Console after clicking in “Raster export” or “Visualization” in grey box on the map. B: Initiate each image export to Google Drive from the Tasks tab by clicking “Run”. Users can optionally modify the preset parameters in the pop-up window.
+
+
+
+
 Further information on how to work with Google Earth Engine and website construction can be found in the Earth Engine guides.
 * [Get Started with Earth Engine](https://developers.google.com/earth-engine/guides/getstarted)
 * [Earth Engine Code Editor](https://developers.google.com/earth-engine/guides/playground)
