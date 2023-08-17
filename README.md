@@ -6,7 +6,7 @@ GEE-PICX is ... (more description)
 
 If you follow that link, you can open the application in Google Earth Engine's code editor mode. In case you are not already logged in to your Google account, you will be asked to log in before you are directed to the application interface:
 
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/1_open_app.png">
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/1_open_app.PNG">
 
 You need to hit "Run" on top the code editor to start the application. 
 
