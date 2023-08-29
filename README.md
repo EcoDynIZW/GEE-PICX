@@ -35,7 +35,7 @@ In this example we want to create a single winter season image composite for the
 
 #### a. Upload [shapefile of city of Würzburg](https://opendata.wuerzburg.de/explore/dataset/altstadt/export/) as an asset to Googe Earth Engine.
 
-(1) Go to the *Assets* tab in the top-left window and click (2) "New" --> (3) "Shape files". A window will pop up from where you can (3) "Select" your study area shapefile from your local computer. Select all required extentions and click (4) "Upload".
+Go to the *Assets* tab in the top-left window and click (1) "New" --> (2) "Shape files". A window will pop up from where you can (3) "Select" your study area shapefile from your local computer. Select all required extentions and click (4) "Upload".
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset.png"> 
 
 You can then go to the *Tasks* tab in the top-right window and wait until the shapefile upload is finished (this symbol ✓ (5) should appear). Your new asset should be listed now in the *Assets* tab, if not click (6) the "Refresh" button and it should appear at the given name. In order to access the study area asset from the application, we need to copy the file path. This can be done by (7) clicking on the file in the *Assets* tab and (8) copying the file path from the pop-up window. (9) Close the window afterwards to continue.
