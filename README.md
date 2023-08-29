@@ -15,17 +15,17 @@ The application allows users without experience in remote sensing to generate cl
 
 Follow [this link](https://code.earthengine.google.com/ccfd3131bf258087a4027d2c4539c1e5) and open the application in Google Earth Engine's code editor mode. In case you are not already logged in to your Google account, you will be asked to log in or set up an account before you are directed to the application interface:
 
+*Figure: GEE-PICX web application. (If the application interface does not appear next to the map, you need to hit "Run" on top the code editor to start the application.)*
+
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/1_open_app.PNG">
-*Figure: GEE-PICX web application. (If the application interface does not appear next to the map, you need to hit "Run" on top the code editor to start the application)*
 
 ## 2. Default parameters
 
 Then you can select the parameters according to your requirements in the application interface box. 
 
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/default_interface5.png">
 *Figure: Default parameters in box with description.*
 
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/default_interface4.png">
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/default_interface5.png">
 
 ## 3. Example tutorials 
 
