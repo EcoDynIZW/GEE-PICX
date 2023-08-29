@@ -2,7 +2,7 @@
 
 ***P**henological **I**maging and **C**loud-free **X**port*
 
-GEE-PICX is a Google Earth Engine web application for generating and exporting cloud-free and analysis-ready composites of satellite images for user-defined areas and time steps with global data coverage. 
+**GEE-PICX is a Google Earth Engine web application for generating and exporting cloud-free and analysis-ready composites of satellite images for user-defined areas and time steps with global data coverage.**
 
 We followed four design principles in developing GEE-PICX:
 1. **Flexibility of user input.** Users have control over choice of satellite platform (Landsat or Sentinel-2), study area boundaries, time range, maximum cloud cover (for single images), aggregation mode, and image bands. Relevant images are automatically selected from the data catalog according to user input.
@@ -19,10 +19,11 @@ Below you can find a find step-by-step tutorial on how to open and work in the a
  
 ## 1. How-to-open GEE-PICX 
 
-Follow [this link](https://code.earthengine.google.com/ccfd3131bf258087a4027d2c4539c1e5) and open the application in Google Earth Engine's code editor mode. In case you are not already logged in to your Google account, you will be asked to log in or set up an account before you are directed to the application interface:
+* Follow [this link](https://code.earthengine.google.com/ccfd3131bf258087a4027d2c4539c1e5) and open the application in Google Earth Engine's code editor mode.
+* In case you are not already logged in to your Google account, you will be asked to log in or set up an account before you are directed to the application interface
+* If the application interface does not appear next to the map, you need to hit "Run" on top the code editor to start the application.
 
-*Figure: GEE-PICX web application. (If the application interface does not appear next to the map, you need to hit "Run" on top the code editor to start the application.)*
-
+*Figure: Start page of GEE-PICX web application.*
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/1_open_app.PNG">
 
 
@@ -30,17 +31,15 @@ Follow [this link](https://code.earthengine.google.com/ccfd3131bf258087a4027d2c4
 
 ## 2. Default parameters
 
-Then you can select the parameters according to your requirements in the application interface box. 
+* Then you can select the parameters according to your requirements in the box next to the map. 
 
 *Figure: Default parameters in box with description.*
-
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/default_interface5.png">
 
 
 
 
 ## 3. Example tutorials 
-
 
 
 ### 3.1 Case study (1)
