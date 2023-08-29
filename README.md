@@ -8,7 +8,7 @@ We followed four design principles in developing GEE-PICX:
 3. **Export of large data sets.** Only limited by Google drive storage capacity.
 4. **Generate analysis-ready data.** Generates cloud-free image mosaics with spectral bands, spectral indices, and a quality assessment band (valid scenes per pixel). Export image resolution and coordinate reference system are customizable.
 
-The application allows users without experience in remote sensing to generate cloud-free and analysis-ready image composites for custom study areas and points in time for a multitude of applications in ecology and beyond.
+The application allows users without experience in remote sensing to generate cloud-free and analysis-ready image composites for custom study areas and points in time for a multitude of applications in ecology and beyond. 
 
  
 ## 1. How to open GEE-PICX application 
