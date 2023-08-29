@@ -50,7 +50,7 @@ Then you can select the parameters according to your requirements in the applica
 In this example we want to create a single winter season image composite for the city of Würzburg, Germany. But before we can set all parameters, we need to import our study area to Google Earth Engine.
 
 
-#### a. Upload [shapefile of city of Würzburg](https://opendata.wuerzburg.de/explore/dataset/altstadt/export/) as an asset to Googe Earth Engine.
+#### a. Upload shapefile as asset to Googe Earth Engine
 
 * Download the shapefile of city of Würzburg from [this website](https://opendata.wuerzburg.de/explore/dataset/altstadt/export/) to your local computer.
 * Go to the *Assets*-tab in the top-left window and click (1) "New" --> (2) "Shape files".
