@@ -29,9 +29,9 @@ Then you can select the parameters according to your requirements in the applica
 
 ## 3. Example tutorials 
 
-### 3.1 Example (1): Create single-season image composite for city of Würzburg
+### 3.1 Example (1): Create single-season image composite for city of Würzburg, Germany
 
-In this example we want to create a single winter season image composite for the city of Würzburg. But before we can set all parameters, we need to import our study area to Google Earth Engine.
+In this example we want to create a single winter season image composite for the city of Würzburg, Germany. But before we can set all parameters, we need to import our study area to Google Earth Engine.
 
 #### a. Upload [shapefile of city of Würzburg](https://opendata.wuerzburg.de/explore/dataset/altstadt/export/) as an asset to Googe Earth Engine.
 
@@ -43,21 +43,13 @@ You can then go to the *Tasks* tab in the top-right window and wait until the sh
 
 #### b. Select parameters
 
-Now we can select all parameters: 
-* Sentinel-2
-* path-to-asset
-* december 2022 - february 2023 (winter)
-* 100 % cloud cover
-* default band selection
-* median
-* 10m resolution
-* UTM (EPSG: 32632)
+Now we can select all parameters *(Sentinel-2, path-to-asset, december 2022 - february 2023 (winter), 100 % cloud cover, default band selection, median, 10m resolution, UTM (EPSG: 32632))*
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/parameter_example1.png">
 
 #### c. Export image
 
-When hitting the Export button, two image collections will appear in the *Console* tab in the upper-right window and can be further inspected. The first one includes all single images that are filtered according to your input, the second one includes the composites that can be exported (in this example only one aggregated scene): 
+When clicking the "Export" button, two image collections will appear in the *Console* tab in the upper-right window and can be further inspected. The first one (a) includes all single images that were filtered according to the input parameters, the second one (b) includes the composite that can be exported. In this example 35 satellite images were aggregated to one scene for the winter season in Würzburg, Germany. 
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/print_example1.PNG">
 
