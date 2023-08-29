@@ -1,4 +1,4 @@
-# GEE-PICX
+# GEE-PICX *(Phenological Imaging and Cloud-free Xport)*
 
 GEE-PICX is a Google Earth Engine web application for generating and exporting cloud-free and analysis-ready composites of satellite images for user-defined areas and time steps with global data coverage. 
 
