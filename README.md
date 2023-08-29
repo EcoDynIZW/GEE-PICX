@@ -11,17 +11,30 @@ We followed four design principles in developing GEE-PICX:
 The application allows users without experience in remote sensing to generate cloud-free and analysis-ready image composites for custom study areas and points in time for a multitude of applications in ecology and beyond.
 
  
-## Open GEE-PICX application via [this link](https://code.earthengine.google.com/8f2dafed903a6bf35f8ed63e54082778)
+## 1. Open GEE-PICX application
 
-If you follow that link, you can open the application in Google Earth Engine's code editor mode. In case you are not already logged in to your Google account, you will be asked to log in or set up an account before you are directed to the application interface:
+Follow [this link](https://code.earthengine.google.com/8f2dafed903a6bf35f8ed63e54082778) and open the application in Google Earth Engine's code editor mode. In case you are not already logged in to your Google account, you will be asked to log in or set up an account before you are directed to the application interface:
 
 *(If the application interface does not appear next to the map, you need to hit "Run" on top the code editor to start the application)*
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/1_open_app.PNG">
 
+## 2. Select parameters
+
 Then you can choose all parameters according to your requirements on the application interface next to the map:
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/2_choose_parameters.PNG">
+
+* **Platform:** Select Sentinel-2 *or* Landsat missions
+* **Study area:** Insert path to Earth Engine [Asset](https://developers.google.com/earth-engine/guides/asset_manager) *or* draw your area of interest on the map
+* **Time frame:**
+* **Cloud cover filter:**
+* **Image bands:**
+* **Aggregation mode:**
+* **Coordinate system:**
+* **Spatial pixel resolution:**
+
+
 
 When hitting the Export button, two image collections will appear in the *Console* tab in the upper-right window and can be further inspected. The first one includes all single images that are filtered according to your input, the second one includes the composites that can be exported (in this example only one aggregated scene):
 
