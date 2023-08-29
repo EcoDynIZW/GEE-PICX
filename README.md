@@ -34,10 +34,9 @@ Then you can select the parameters according to your requirements in the applica
 #### a. Upload [shapefile of city of Würzburg](https://opendata.wuerzburg.de/explore/dataset/altstadt/export/) as an asset to Googe Earth Engine.
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset.png"> 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/copy_path.png">
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/insert_path.png">
 
 #### b. Select parameters
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/....png">
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/parameter_example1.png">
 
 #### c. Export image
 
