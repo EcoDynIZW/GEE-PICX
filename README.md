@@ -11,7 +11,7 @@ We followed four design principles in developing GEE-PICX:
 The application allows users without experience in remote sensing to generate cloud-free and analysis-ready image composites for custom study areas and points in time for a multitude of applications in ecology and beyond.
 
  
-## 1. Open GEE-PICX application
+## 1. Open GEE-PICX application 
 
 Follow [this link](https://code.earthengine.google.com/ccfd3131bf258087a4027d2c4539c1e5) and open the application in Google Earth Engine's code editor mode. In case you are not already logged in to your Google account, you will be asked to log in or set up an account before you are directed to the application interface:
 
