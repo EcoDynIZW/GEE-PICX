@@ -21,7 +21,7 @@ Follow [this link](https://code.earthengine.google.com/ccfd3131bf258087a4027d2c4
 
 ## 2. Select parameters
 
-Then you can select the parameters according to your requirements.
+Then you can select the parameters according to your requirements in the application interface box.
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/default_interface4.png">
 
