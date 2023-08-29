@@ -27,7 +27,7 @@ Then you can choose all parameters according to your requirements on the applica
 
 
 * **Platform:** Select Sentinel-2 *or* Landsat missions
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/platforms.PNG">
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/platforms.png">
 
 
 * **Study area:** Insert path to Earth Engine [Asset](https://developers.google.com/earth-engine/guides/asset_manager) *or* draw boundary of area of interest on map.
@@ -35,7 +35,7 @@ Then you can choose all parameters according to your requirements on the applica
 Import asset              | Draw polygon
 :-------------------------:|:-------------------------:
 ![](https://...Dark.png)  |  ![](https://...Ocean.png) 
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset.PNG"> <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/copy_path.PNG"> <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/insert_path.PNG"> | <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/draw_polygon.PNG">
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset.png"> <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/copy_path.png"> <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/insert_path.png"> | <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/draw_polygon.png">
 
 
 * **Time frame:**                Specify year- and month range. 
