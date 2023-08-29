@@ -21,53 +21,12 @@ Follow [this link](https://code.earthengine.google.com/ccfd3131bf258087a4027d2c4
 
 ## 2. Select parameters
 
-Parameter              | Interface
-:-------------------------:|:-------------------------:
-* **Platform:** <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/platforms.png"> | <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/default_interface.png">
-* Study area
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/default_interface3.png">
 
-Then you can choose all parameters according to your requirements on the application interface next to the map. 
-
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/2_choose_parameters.PNG">
-
-Below we create a winter composite for the city of Würzburg as an example.
-
-* **Platform:** Select Sentinel-2 *or* Landsat missions. <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/platforms.png">
-* **Study area:** Insert path to Earth Engine [Asset](https://developers.google.com/earth-engine/guides/asset_manager) *or* draw boundary of area of interest on map.
-* **Cloud cover filter:**  Select maximum cloud cover percentage per scene (all scenes that have a higher value will be excluded).
-
-* **Image bands:** Select bands that should be added to scenes.
-
-* **Aggregation mode:** Select aggregation mode (= summary statstic) according to which all filtered scenes will be conbined.   
-
-* **Coordinate system:** Select CRS 
-
-* **Spatial pixel resolution:** 
-
-
-* **Study area:** Insert path to Earth Engine [Asset](https://developers.google.com/earth-engine/guides/asset_manager) *or* draw boundary of area of interest on map.
-
-Import asset              | Draw polygon
-:-------------------------:|:-------------------------:
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset.png"> | <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/draw_polygon.png">
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/copy_path.png"> |
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/insert_path.png"> |
 
-
-* **Time frame:** Specify year- and month range. 
-                               * *year range:* can cover one or more years 
-                               (earliest for Landsat 5-9: 1984; Landsat 8-9: 2013; Sentinel-2: 2017).
-                               * *month range:* annual image(s) if months 1-12; create seasonal image aggregates by narrowing the selection to specific consecutive months (also crossing the year boundary)
-  
-* **Cloud cover filter:**       
-
-* **Image bands:**              
-
-* **Aggregation mode:**         
-
-* **Coordinate system:**        
-
-* **Spatial pixel resolution:** 
 
 
 
