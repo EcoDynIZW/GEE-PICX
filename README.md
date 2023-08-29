@@ -34,8 +34,9 @@ Then you can choose all parameters according to your requirements on the applica
 
 Import asset              | Draw polygon
 :-------------------------:|:-------------------------:
-![](https://...Dark.png)  |  ![](https://...Ocean.png) 
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset.png"> <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/copy_path.png"> <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/insert_path.png"> | <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/draw_polygon.png">
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset.png"> | <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/draw_polygon.png">
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/copy_path.png"> |
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/insert_path.png"> |
 
 
 * **Time frame:**                Specify year- and month range. 
