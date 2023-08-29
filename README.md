@@ -23,7 +23,7 @@ Follow [this link](https://code.earthengine.google.com/ccfd3131bf258087a4027d2c4
 
 Then you can select the parameters according to your requirements.
 
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/default_interface3.png">
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/default_interface4.png">
 
 ## 3. Example areas 
 
