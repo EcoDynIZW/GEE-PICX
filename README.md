@@ -1,4 +1,4 @@
-# GEE-PICX *(Phenological Imaging and Cloud-free Xport)*
+# GEE-PICX *(**P**henological **I**maging and **C**loud-free **X**port)*
 
 GEE-PICX is a Google Earth Engine web application for generating and exporting cloud-free and analysis-ready composites of satellite images for user-defined areas and time steps with global data coverage. 
 
@@ -24,6 +24,8 @@ Follow [this link](https://code.earthengine.google.com/ccfd3131bf258087a4027d2c4
 Then you can select the parameters according to your requirements in the application interface box.
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/default_interface4.png">
+
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/default_interface5.png">
 
 ## 3. Example tutorials 
 
