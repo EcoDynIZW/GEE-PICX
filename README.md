@@ -31,15 +31,27 @@ Then you can select the parameters according to your requirements in the applica
 
 ### 3.1 Example (1): Create single-season image composite for city of Würzburg
 
+In this example we want to create a single winter season image composite for the city of Würzburg. But before we can set all parameters, we need to import our study area to Google Earth Engine.
+
 #### a. Upload [shapefile of city of Würzburg](https://opendata.wuerzburg.de/explore/dataset/altstadt/export/) as an asset to Googe Earth Engine.
 
-Go to the Asset tab in the top-left window and click "New" --> "Shape files". A window will pop up from where you can select the study area shapefile from your local computer. Select all required extentions and click "Upload").
+(1) Go to the *Assets* tab in the top-left window and click (2) "New" --> (3) "Shape files". A window will pop up from where you can (3) "Select" your study area shapefile from your local computer. Select all required extentions and click (4) "Upload".
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset.png"> 
 
-
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/copy_path.png">
+You can then go to the *Tasks* tab in the top-right window and wait until the shapefile upload is finished (this symbol ✓ (5) should appear). Your new asset should be listed now in the *Assets* tab, if not click (6) the "Refresh" button and it should appear at the given name. In order to access the study area asset from the application, we need to copy the file path. This can be done by (7) clicking on the file in the *Assets* tab and (8) copying the file path from the pop-up window. (9) Close the window afterwards to continue.
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset_path.png">
 
 #### b. Select parameters
+
+Now we can select all parameters: 
+* Sentinel-2
+* path-to-asset
+* december 2022 - february 2023 (winter)
+* 100 % cloud cover
+* default band selection
+* median
+* 10m resolution
+* UTM (EPSG: 32632)
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/parameter_example1.png">
 
