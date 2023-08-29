@@ -21,14 +21,23 @@ Follow [this link](https://code.earthengine.google.com/ccfd3131bf258087a4027d2c4
 
 ## 2. Select parameters
 
+Then you can select the parameters according to your requirements.
+
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/default_interface3.png">
 
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset.png"> | <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/draw_polygon.png">
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/copy_path.png"> |
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/insert_path.png"> |
+## 3. Example areas 
 
+### 3.1 Example (1): Create single-season image composite for city of Würzburg
 
+#### a. Download shapefile of city of Würzburg from [here](https://opendata.wuerzburg.de/explore/dataset/altstadt/export/) and upload it as an asset to Googe Earth Engine.
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset.png"> 
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/copy_path.png">
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/insert_path.png">
 
+#### b. Select parameters in GEE-PICX interface
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/....png">
+
+#### c. Export image to Google Drive
 
 When hitting the Export button, two image collections will appear in the *Console* tab in the upper-right window and can be further inspected. The first one includes all single images that are filtered according to your input, the second one includes the composites that can be exported (in this example only one aggregated scene):
 
@@ -41,19 +50,24 @@ To initiate the final export to the your Google Drive, you must go to the *Tasks
 
 
 
+#### d. Optional: visualize image on map in Google Earth Engine
+
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/5_visualization.PNG">
 
 
 
 
+### 3.2 Example (2): Create multi-annual image composites for an area in the Amazon rainforest, Ariquemes, Brazil
+
+#### a. Draw your study area on map in Google Earth Engine
+
+#### b. Select parameters in GEE-PICX interface
+
+#### c. Export images to Google Drive
+
+#### d. Optional: visualize images on map in Google Earth Engine
 
 
-
-
-
-Figure S1: A: GEE-PICX application interface in Code Editor mode when opening script link. Parameters can be modified by the user in the grey box on the map. B: Visualization of NDVI band of GEE-PICX products on the map. Modification of layer visualization parameters can be applied in the layer panel box on the map (setting icon).
-
-Figure S2: A: Inspect single image collection as well as aggregated image collection for export in the Console tab (upper-right window). The image collections appear in the Console after clicking in “Raster export” or “Visualization” in grey box on the map. B: Initiate each image export to Google Drive from the Tasks tab by clicking “Run”. Users can optionally modify the preset parameters in the pop-up window.
 
 
 
