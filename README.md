@@ -24,7 +24,7 @@ Below you can find a find step-by-step tutorial on how to open and work in the a
 * If the application interface does not appear next to the map, you need to hit "Run" on top the code editor to start the application.
 
 *Figure: Start page of GEE-PICX web application.*
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/1_open_app.PNG">
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/open_app.png">
 
 
 
