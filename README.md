@@ -15,15 +15,15 @@ The application allows users without experience in remote sensing to generate cl
 
 Follow [this link](https://code.earthengine.google.com/ccfd3131bf258087a4027d2c4539c1e5) and open the application in Google Earth Engine's code editor mode. In case you are not already logged in to your Google account, you will be asked to log in or set up an account before you are directed to the application interface:
 
-*(If the application interface does not appear next to the map, you need to hit "Run" on top the code editor to start the application)*
-
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/1_open_app.PNG">
+*Figure: GEE-PICX web application. (If the application interface does not appear next to the map, you need to hit "Run" on top the code editor to start the application)*
 
 ## 2. Default parameters
 
-Then you can select the parameters according to your requirements in the application interface box.
+Then you can select the parameters according to your requirements in the application interface box. 
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/default_interface5.png">
+*Figure: Default parameters in box with description.*
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/default_interface4.png">
 
@@ -31,15 +31,15 @@ Then you can select the parameters according to your requirements in the applica
 
 ### 3.1 Example (1): Create single-season image composite for city of Würzburg
 
-#### a. Download shapefile of city of Würzburg from [here](https://opendata.wuerzburg.de/explore/dataset/altstadt/export/) and upload it as an asset to Googe Earth Engine.
+#### a. Upload [shapefile of city of Würzburg](https://opendata.wuerzburg.de/explore/dataset/altstadt/export/) as an asset to Googe Earth Engine.
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset.png"> 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/copy_path.png">
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/insert_path.png">
 
-#### b. Select parameters in GEE-PICX interface
+#### b. Select parameters
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/....png">
 
-#### c. Export image to Google Drive
+#### c. Export image
 
 When hitting the Export button, two image collections will appear in the *Console* tab in the upper-right window and can be further inspected. The first one includes all single images that are filtered according to your input, the second one includes the composites that can be exported (in this example only one aggregated scene):
 
@@ -52,7 +52,7 @@ To initiate the final export to the your Google Drive, you must go to the *Tasks
 
 
 
-#### d. Optional: visualize image on map in Google Earth Engine
+#### d. Visualize image on map (optional)
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/5_visualization.PNG">
 
@@ -61,13 +61,13 @@ To initiate the final export to the your Google Drive, you must go to the *Tasks
 
 ### 3.2 Example (2): Create multi-annual image composites for an area in the Amazon rainforest, Ariquemes, Brazil
 
-#### a. Draw your study area on map in Google Earth Engine
+#### a. Draw study area on map in Google Earth Engine
 
-#### b. Select parameters in GEE-PICX interface
+#### b. Select parameters
 
-#### c. Export images to Google Drive
+#### c. Export images
 
-#### d. Optional: visualize images on map in Google Earth Engine
+#### d. Visualize images on map (optional)
 
 
 
