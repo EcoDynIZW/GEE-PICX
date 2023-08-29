@@ -25,15 +25,19 @@ Then you can choose all parameters according to your requirements on the applica
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/2_choose_parameters.PNG">
 
-Options
 
-Solarized dark             |  Solarized Ocean
-:-------------------------:|:-------------------------:
-![](https://...Dark.png)  |  ![](https://...Ocean.png)
 
-* **Platform:** Select Sentinel-2 *or* Landsat missions
-* **Study area:** Insert path to Earth Engine [Asset](https://developers.google.com/earth-engine/guides/asset_manager) *or* draw your area of interest on the map
-* **Time frame:** Specify year- and month range. The *year frame* can cover one or more years (earliest for Landsat-5-9: 1984, Landsat 8-9earliest for Sentinel-2: 2017).
+**Parameter**               |  **Options**                         | ...
+:---------------------------------:|:------------------------------------:|:------------------------:
+**Platform:**           |                  | ![](https://...Ocean.png)
+**Study area:**
+**Time frame:**
+
+
+
+*  Select Sentinel-2 *or* Landsat missions
+*  Insert path to Earth Engine [Asset](https://developers.google.com/earth-engine/guides/asset_manager) *or* draw your area of interest on the map
+*  Specify year- and month range. The *year frame* can cover one or more years (earliest for Landsat-5-9: 1984, Landsat 8-9earliest for Sentinel-2: 2017).
 * By default, scenes are aggregated for one year (months 1 - 12). Users can create seasonal image aggregates by narrowing the selection to specific consecutive months (also crossing the year boundary). Users can request export of imagery from multiple years at once.
 
 * **Cloud cover filter:**
