@@ -59,12 +59,12 @@ Now we can select all parameters:
 
 When hitting the Export button, two image collections will appear in the *Console* tab in the upper-right window and can be further inspected. The first one includes all single images that are filtered according to your input, the second one includes the composites that can be exported (in this example only one aggregated scene): 
 
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/3_choose_parameters.PNG">
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/print_example1.PNG">
 
 To initiate the final export to the your Google Drive, you must go to the *Tasks* tab and click "Run" at each image (in this case only one). A pop-up window will appear, where you can further modify the name, coordinate system, or scale. It might be helpful to add the name of the study area or other characteristic parameters to not get confused later on when exporting multiple images. 
 
 
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/4_export.PNG">
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/export_example1.PNG">
 
 
 
