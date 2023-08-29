@@ -63,12 +63,10 @@ To initiate the final image export to your Google Drive, you must go to the *Tas
 
 GEE-PICX offers the opportunity to visualize the image composite(s) on the map prior to the export. You can either (1) "Select a band combination" or (2) "Select a vegetation index" by which the image composite(s) will be added to the map. Whatever option you choose, the layer will be added to the map. In the layer panel box on the map you can either (un)select each layer by removing this symbol ✓ (3), or make them transparent with the fader. If you click on the (4) "Settings" button, a window will pop up where you can modify the default visualisation parameters.
 
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/vis1_example1.png"> <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/vis2_example1.png">
 
-
-| ![](https://github.com/Luisa-del/GEE-PICX/blob/main/img/vis1_example1.png)                     | ![](https://github.com/Luisa-del/GEE-PICX/blob/main/img/vis2_example1.png)           | ![]  |
-| ------------- |:-------------:
-
+Markdown | Less
+--- | --- 
+![](https://github.com/Luisa-del/GEE-PICX/blob/main/img/vis1_example1.png) | ![](https://github.com/Luisa-del/GEE-PICX/blob/main/img/vis2_example1.png) 
 
 
 
