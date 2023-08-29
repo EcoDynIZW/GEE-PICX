@@ -57,16 +57,37 @@ To initiate the final image export to your Google Drive, you must go to the *Tas
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/export_example1.png">
 
-**General info about exporting images:** Multiple image exports run in parallel and depending on study area size each export can take from minutes to hours (or even days for study regions measuring hundreds of thousands of square kilometers). When exporting large datasets, Google Earth Engine splits each image into smaller tiles. After downloading them from Google drive, they can either be merged to a large contiguous mosaic, or be used as a virtual raster.
-
 #### d. Visualize image on map (optional)
 
 GEE-PICX offers the opportunity to visualize the image composite(s) on the map prior to the export. You can either (1) "Select a band combination" or (2) "Select a vegetation index" by which the image composite(s) will be added to the map. Whatever option you choose, the layer will be added to the map. In the layer panel box on the map you can either (un)select each layer by removing this symbol ✓ (3), or make them transparent with the fader. If you click on the (4) "Settings" button, a window will pop up where you can modify the default visualisation parameters.
 
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/vis3_example1.png">
 
-Markdown | Less
---- | --- 
-![](https://github.com/Luisa-del/GEE-PICX/blob/main/img/vis1_example1.png) | ![](https://github.com/Luisa-del/GEE-PICX/blob/main/img/vis2_example1.png) 
+## 4. Important-To-Know when exporting & visualising image composites
+* Multiple image exports run in parallel and depending on study area size, length of time frame each export can take from minutes to hours (or even days for study regions measuring hundreds of thousands of square kilometers).
+* When exporting large datasets, Google Earth Engine splits each image into smaller tiles. After downloading them from Google drive, they can either be merged to a large contiguous mosaic, or be used as a virtual raster.
+* All indices have a valid value range from -1 to 1 in the application. All band values of export images are multiplied by 10,000 except for the valid pixel band.
+* Google Earth Engine may encounter computational problems for visualization if the data is too large due to the size of the study area and/or the length of the time period. This may lead to scaling error messages and some objects would not be displayed on the map (or also Console). Visualization problems, however, do not affect image exports, which are always possible and only limited by the storage capacity of the user’s Google drive. 
+
+
+
+## 5. Appendix
+
+*Table: Available spectral indices derived from Landsat or Sentinel-2 imagery.*
+
+Band name | Full name | Formula | Interpretation
+--- | --- | --- | ---
+NDVI | Normalized Difference Vegetation Index | (NIR-Red)(NIR+Red) | Highlights density  and health of photosynthetically active vegetation. Tends to saturate in densely vegetated areas. Sensitive to the contribution of soil brightness and atmospheric effects (Petropulos & Kalaitzidis 2011). 
+EVI2 | Enhanced Vegetation Index 2 | 2,4*(NIR-Red)(NIR+Red+1) | Highlights photosynthetically active vegetation, but does not saturate in densely vegetated areas. Accounts for soil brightness variation. Less affected by atmospheric effects than NDVI and EVI. 
+SAVI | Soil-Adjusted Vegetation Index | (NIR-Red)(NIR+Red+L)*(1+L) | Highlights photosynthetically active vegetation and accounts for soil brightness variation. 
+MSAVI | Modified Soil-Adjusted Vegetation Index | (NIR-Red)(NIR+Red+L0) *(1+L0) | Modified version of SAVI to further minimize the soil background influences on the vegetation signal (Qi et al., 1994).
+NDMI | Normalized Difference Moisture Index | (NIR-SWIR1)(NIR+SWIR1) | Sensitive to moisture levels  in vegetation and soil. Useful for vegetation analyses, for identifying areas prone to drought stress or excess moisture.
+NBR | Normalized Burn Ratio | (NIR-SWIR2)(NIR+SWIR2) | Detects and quantifies burnt areas. In general, low NBR values indicate recently burnt areas and bare ground (Keeley, 2009). 
+NBR2 | Normalized Burn Ratio 2 | (SWIR1-SWIR2)(SWIR1+SWIR2) | A modification of the NBR, useful in postfire recovery studies, highlights vegetation with high water content (USGS, 2022c).
+BSI | Bare Soil Index | (SWIR1+Red)-(NIR+Blue)(SWIR1+Red)+(NIR+Blue) | Highlights bare ground and rock surfaces. Useful in identification of soil erosion, land degradation, and urbanization processes.
+NDWI | Normalized Difference Water Index | (Green-NIR)(Green+NIR) | Sensitive to water bodies. Useful for water resource management, wetland monitoring, and flood assessment. 
+
+
 
 
 
