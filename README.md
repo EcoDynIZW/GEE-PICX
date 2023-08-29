@@ -34,7 +34,7 @@ Then you can choose all parameters according to your requirements on the applica
 
 Import asset              | Draw polygon
 :-------------------------:|:-------------------------:
-![](https://...Dark.png)  |  ![](https://...Ocean.png)
+![](https://...Dark.png)  |  ![](https://...Ocean.png) 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset.PNG"> <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/copy_path.PNG"> <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/insert_path.PNG"> | <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/draw_polygon.PNG">
 
 
