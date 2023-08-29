@@ -13,7 +13,7 @@ The application allows users without experience in remote sensing to generate cl
  
 ## 1. Open GEE-PICX application
 
-Follow [this link](https://code.earthengine.google.com/8f2dafed903a6bf35f8ed63e54082778) and open the application in Google Earth Engine's code editor mode. In case you are not already logged in to your Google account, you will be asked to log in or set up an account before you are directed to the application interface:
+Follow [this link](https://code.earthengine.google.com/ccfd3131bf258087a4027d2c4539c1e5) and open the application in Google Earth Engine's code editor mode. In case you are not already logged in to your Google account, you will be asked to log in or set up an account before you are directed to the application interface:
 
 *(If the application interface does not appear next to the map, you need to hit "Run" on top the code editor to start the application)*
 
@@ -25,9 +25,17 @@ Then you can choose all parameters according to your requirements on the applica
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/2_choose_parameters.PNG">
 
+Options
+
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![](https://...Dark.png)  |  ![](https://...Ocean.png)
+
 * **Platform:** Select Sentinel-2 *or* Landsat missions
 * **Study area:** Insert path to Earth Engine [Asset](https://developers.google.com/earth-engine/guides/asset_manager) *or* draw your area of interest on the map
-* **Time frame:**
+* **Time frame:** Specify year- and month range. The *year frame* can cover one or more years (earliest for Landsat-5-9: 1984, Landsat 8-9earliest for Sentinel-2: 2017).
+* By default, scenes are aggregated for one year (months 1 - 12). Users can create seasonal image aggregates by narrowing the selection to specific consecutive months (also crossing the year boundary). Users can request export of imagery from multiple years at once.
+
 * **Cloud cover filter:**
 * **Image bands:**
 * **Aggregation mode:**
