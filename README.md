@@ -1,4 +1,6 @@
-# GEE-PICX *(**P**henological **I**maging and **C**loud-free **X**port)*
+# GEE-PICX 
+
+*( **P** henological **I** maging and **C** loud-free **X** port)*
 
 GEE-PICX is a Google Earth Engine web application for generating and exporting cloud-free and analysis-ready composites of satellite images for user-defined areas and time steps with global data coverage. 
 
@@ -10,6 +12,9 @@ We followed four design principles in developing GEE-PICX:
 
 The application allows users without experience in remote sensing to generate cloud-free and analysis-ready image composites for custom study areas and points in time for a multitude of applications in ecology and beyond. 
 
+Below you can find a find step-by-step tutorial on how to open and work in the application using two case studies.
+
+
  
 ## 1. How to open GEE-PICX application 
 
@@ -18,6 +23,8 @@ Follow [this link](https://code.earthengine.google.com/ccfd3131bf258087a4027d2c4
 *Figure: GEE-PICX web application. (If the application interface does not appear next to the map, you need to hit "Run" on top the code editor to start the application.)*
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/1_open_app.PNG">
+
+
 
 ## 2. Default parameters
 
@@ -29,7 +36,9 @@ Then you can select the parameters according to your requirements in the applica
 
 ## 3. Example tutorials 
 
-### 3.1 Example (1): Create single-season image composite for city of Würzburg, Germany
+### 3.1 Case study (1)
+
+**Create single-season image composite for city of Würzburg, Germany**
 
 In this example we want to create a single winter season image composite for the city of Würzburg, Germany. But before we can set all parameters, we need to import our study area to Google Earth Engine.
 
@@ -63,12 +72,40 @@ GEE-PICX offers the opportunity to visualize the image composite(s) on the map p
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/vis3_example1.png">
 
+
+
+
+
+
+### 3.2 Case study (2)
+
+**Create multi-annual image composites for an area in the Amazon rainforest, Ariquemes, Brazil**
+
+#### a. Draw study area on map in Google Earth Engine
+
+#### b. Select parameters
+
+#### c. Export images
+
+#### d. Visualize images on map (optional)
+
+
+
+
 ## 4. Important-To-Know when exporting & visualising image composites
 * Multiple image exports run in parallel and depending on study area size, length of time frame each export can take from minutes to hours (or even days for study regions measuring hundreds of thousands of square kilometers).
 * When exporting large datasets, Google Earth Engine splits each image into smaller tiles. After downloading them from Google drive, they can either be merged to a large contiguous mosaic, or be used as a virtual raster.
 * All indices have a valid value range from -1 to 1 in the application. All band values of export images are multiplied by 10,000 except for the valid pixel band.
-* Google Earth Engine may encounter computational problems for visualization if the data is too large due to the size of the study area and/or the length of the time period. This may lead to scaling error messages and some objects would not be displayed on the map (or also Console). Visualization problems, however, do not affect image exports, which are always possible and only limited by the storage capacity of the user’s Google drive. 
+* Google Earth Engine may encounter computational problems for visualization if the data is too large due to the size of the study area and/or the length of the time period. This may lead to scaling error messages and some objects would not be displayed on the map (or also Console). Visualization problems, however, do not affect image exports, which are always possible and only limited by the storage capacity of the user’s Google drive.
+* Typical scaling errors are *Computation timed out*, *Too many concurrent aggregations*, *User memory limit exceeded*, or *An internal error has occurred*. If one of these message appear in the print console, or the browser in which you opened the app tells you 
 
+
+
+Further information on how to work with Google Earth Engine and website construction can be found in the Earth Engine guides.
+* [Get Started with Earth Engine](https://developers.google.com/earth-engine/guides/getstarted)
+* [Earth Engine Code Editor](https://developers.google.com/earth-engine/guides/playground)
+* [Exporting Images](https://developers.google.com/earth-engine/guides/exporting_images)
+* [Asset Manager](https://developers.google.com/earth-engine/guides/asset_manager)
 
 
 ## 5. Appendix
@@ -88,27 +125,3 @@ BSI | Bare Soil Index | (SWIR1+Red)-(NIR+Blue)(SWIR1+Red)+(NIR+Blue) | Highlight
 NDWI | Normalized Difference Water Index | (Green-NIR)(Green+NIR) | Sensitive to water bodies. Useful for water resource management, wetland monitoring, and flood assessment. 
 
 
-
-
-
-
-### 3.2 Example (2): Create multi-annual image composites for an area in the Amazon rainforest, Ariquemes, Brazil
-
-#### a. Draw study area on map in Google Earth Engine
-
-#### b. Select parameters
-
-#### c. Export images
-
-#### d. Visualize images on map (optional)
-
-
-
-
-
-
-Further information on how to work with Google Earth Engine and website construction can be found in the Earth Engine guides.
-* [Get Started with Earth Engine](https://developers.google.com/earth-engine/guides/getstarted)
-* [Earth Engine Code Editor](https://developers.google.com/earth-engine/guides/playground)
-* [Exporting Images](https://developers.google.com/earth-engine/guides/exporting_images)
-* [Asset Manager](https://developers.google.com/earth-engine/guides/asset_manager)
