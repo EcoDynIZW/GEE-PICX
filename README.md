@@ -30,6 +30,9 @@ Then you can choose all parameters according to your requirements on the applica
 **Parameter**                 |  **Options**                         | 
 :----------------------------:|:------------------------------------:|:------------------------:
 **Platform:**                 | Select Sentinel-2 *or* Landsat missions   | ![](https://...Ocean.png)
+
+
+
 **Study area:**               | Insert path to Earth Engine Asset | [](
                               | *or* draw polygon on map.         |
 **Time frame:**               | Specify year- and month range. 
