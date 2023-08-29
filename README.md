@@ -1,6 +1,6 @@
 # GEE-PICX 
 
-*( **P** henological **I** maging and **C** loud-free **X** port)*
+***P** henological **I** maging and **C** loud-free **X** port*
 
 GEE-PICX is a Google Earth Engine web application for generating and exporting cloud-free and analysis-ready composites of satellite images for user-defined areas and time steps with global data coverage. 
 
