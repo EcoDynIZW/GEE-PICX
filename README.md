@@ -26,31 +26,32 @@ Then you can choose all parameters according to your requirements on the applica
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/2_choose_parameters.PNG">
 
 
-
-**Parameter**                 |  **Options**                         | 
-:----------------------------:|:------------------------------------:|:------------------------:
-**Platform:**                 | Select Sentinel-2 *or* Landsat missions   | ![](https://...Ocean.png)
+* **Platform:** Select Sentinel-2 *or* Landsat missions
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/platforms.PNG">
 
 
+* **Study area:** Insert path to Earth Engine [Asset](https://developers.google.com/earth-engine/guides/asset_manager) *or* draw boundary of area of interest on map.
 
-**Study area:**               | Insert path to Earth Engine Asset | [](
-                              | *or* draw polygon on map.         |
-**Time frame:**               | Specify year- and month range. 
-                              | * *year range:* can cover one or more years 
-                              | (earliest for Landsat 5-9: 1984; Landsat 8-9: 2013; Sentinel-2: 2017).
-                              | * *month range:* annual image(s) if months 1-12; create seasonal image aggregates by narrowing the selection to specific consecutive months (also crossing the year boundary)
-**Cloud cover filter:**       |
-**Image bands:**              |
-**Aggregation mode:**         |
-**Coordinate system:**        |
-**Spatial pixel resolution:** |
+Import asset              | Draw polygon
+:-------------------------:|:-------------------------:
+![](https://...Dark.png)  |  ![](https://...Ocean.png)
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset.PNG"> <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/copy_path.PNG"> <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/insert_path.PNG"> | <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/draw_polygon.PNG">
 
 
-*  
-*  Insert path to Earth Engine [Asset](https://developers.google.com/earth-engine/guides/asset_manager) *or* draw your area of interest on the map
-* 
+* **Time frame:**                Specify year- and month range. 
+                               * *year range:* can cover one or more years 
+                               (earliest for Landsat 5-9: 1984; Landsat 8-9: 2013; Sentinel-2: 2017).
+                               * *month range:* annual image(s) if months 1-12; create seasonal image aggregates by narrowing the selection to specific consecutive months (also crossing the year boundary)
+  
+* **Cloud cover filter:**       
 
-* 
+* **Image bands:**              
+
+* **Aggregation mode:**         
+
+* **Coordinate system:**        
+
+* **Spatial pixel resolution:** 
 
 
 
