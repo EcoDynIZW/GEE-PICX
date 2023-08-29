@@ -21,6 +21,11 @@ Follow [this link](https://code.earthengine.google.com/ccfd3131bf258087a4027d2c4
 
 ## 2. Select parameters
 
+Parameter              | Interface
+:-------------------------:|:-------------------------:
+* **Platform:** <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/platforms.png"> | <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/interface.png">
+* Study area
+
 Then you can choose all parameters according to your requirements on the application interface next to the map. 
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/2_choose_parameters.PNG">
