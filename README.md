@@ -32,15 +32,20 @@ Then you can select the parameters according to your requirements in the applica
 ### 3.1 Example (1): Create single-season image composite for city of Würzburg
 
 #### a. Upload [shapefile of city of Würzburg](https://opendata.wuerzburg.de/explore/dataset/altstadt/export/) as an asset to Googe Earth Engine.
+
+Go to the Asset tab in the top-left window and click "New" --> "Shape files". A window will pop up from where you can select the study area shapefile from your local computer. Select all required extentions and click "Upload").
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset.png"> 
+
+
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/copy_path.png">
 
 #### b. Select parameters
+
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/parameter_example1.png">
 
 #### c. Export image
 
-When hitting the Export button, two image collections will appear in the *Console* tab in the upper-right window and can be further inspected. The first one includes all single images that are filtered according to your input, the second one includes the composites that can be exported (in this example only one aggregated scene):
+When hitting the Export button, two image collections will appear in the *Console* tab in the upper-right window and can be further inspected. The first one includes all single images that are filtered according to your input, the second one includes the composites that can be exported (in this example only one aggregated scene): 
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/3_choose_parameters.PNG">
 
