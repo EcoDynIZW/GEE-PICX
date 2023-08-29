@@ -51,11 +51,11 @@ Now we can select all parameters *(Sentinel-2, path-to-asset, december 2022 - fe
 
 When clicking (1) "Raster export", two image collections will appear in the *Console*-tab in the upper-right window and can be further inspected. The first one (a) includes all single images that were filtered according to the user input, the second one (b) includes the composite image that can be exported. In this example 35 satellite images (cloud cover 100%) were aggregated to one scene for the winter season in Würzburg, Germany. 
 
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/print_example1.PNG">
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/print_example1.png">
 
 To initiate the final image export to your Google Drive, you must go to the *Tasks*-tab and click (2) "Run" at each image (in this case only one). A pop-up window with default setting will appear, but here you can further modify names, coordinate system, scale, or Google drive golder. It might be helpful to add the name of the study area or other characteristic parameters to not get confused later on when exporting more images. The default drive folder "GEE_Export" will be created automatically if not already existing. Click (3) "Run" again, and the image will be processed and exported to the Google drive folder. 
 
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/export_example1.PNG">
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/export_example1.png">
 
 **General info about exporting images:** Multiple image exports run in parallel and depending on study area size each export can take from minutes to hours (or even days for study regions measuring hundreds of thousands of square kilometers). When exporting large datasets, Google Earth Engine splits each image into smaller tiles. After downloading them from Google drive, they can either be merged to a large contiguous mosaic, or be used as a virtual raster.
 
@@ -63,13 +63,12 @@ To initiate the final image export to your Google Drive, you must go to the *Tas
 
 GEE-PICX offers the opportunity to visualize the image composite(s) on the map prior to the export. You can either (1) "Select a band combination" or (2) "Select a vegetation index" by which the image composite(s) will be added to the map. Whatever option you choose, the layer will be added to the map. In the layer panel box on the map you can either (un)select each layer by removing this symbol ✓ (3), or make them transparent with the fader. If you click on the (4) "Settings" button, a window will pop up where you can modify the default visualisation parameters.
 
-| ![](https://github.com/Luisa-del/GEE-PICX/blob/main/img/5_visualization.PNG)        | ![]           | ![]  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/vis1_example1.png"> <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/vis2_example1.png">
 
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/5_visualization.PNG">
+
+| ![](https://github.com/Luisa-del/GEE-PICX/blob/main/img/vis1_example1.png)                     | ![](https://github.com/Luisa-del/GEE-PICX/blob/main/img/vis2_example1.png)           | ![]  |
+| ------------- |:-------------:
+
 
 
 
