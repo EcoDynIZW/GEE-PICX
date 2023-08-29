@@ -27,24 +27,27 @@ Then you can choose all parameters according to your requirements on the applica
 
 
 
-**Parameter**               |  **Options**                         | ...
-:---------------------------------:|:------------------------------------:|:------------------------:
-**Platform:**           |                  | ![](https://...Ocean.png)
-**Study area:**
-**Time frame:**
+**Parameter**                 |  **Options**                         | 
+:----------------------------:|:------------------------------------:|:------------------------:
+**Platform:**                 | Select Sentinel-2 *or* Landsat missions   | ![](https://...Ocean.png)
+**Study area:**               | Insert path to Earth Engine Asset | [](
+                              | *or* draw polygon on map.         |
+**Time frame:**               | Specify year- and month range. 
+                              | * *year range:* can cover one or more years 
+                              | (earliest for Landsat 5-9: 1984; Landsat 8-9: 2013; Sentinel-2: 2017).
+                              | * *month range:* annual image(s) if months 1-12; create seasonal image aggregates by narrowing the selection to specific consecutive months (also crossing the year boundary)
+**Cloud cover filter:**       |
+**Image bands:**              |
+**Aggregation mode:**         |
+**Coordinate system:**        |
+**Spatial pixel resolution:** |
 
 
-
-*  Select Sentinel-2 *or* Landsat missions
+*  
 *  Insert path to Earth Engine [Asset](https://developers.google.com/earth-engine/guides/asset_manager) *or* draw your area of interest on the map
-*  Specify year- and month range. The *year frame* can cover one or more years (earliest for Landsat-5-9: 1984, Landsat 8-9earliest for Sentinel-2: 2017).
-* By default, scenes are aggregated for one year (months 1 - 12). Users can create seasonal image aggregates by narrowing the selection to specific consecutive months (also crossing the year boundary). Users can request export of imagery from multiple years at once.
+* 
 
-* **Cloud cover filter:**
-* **Image bands:**
-* **Aggregation mode:**
-* **Coordinate system:**
-* **Spatial pixel resolution:**
+* 
 
 
 
