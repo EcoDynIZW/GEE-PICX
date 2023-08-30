@@ -173,8 +173,6 @@ When the application is opened, zoom in on Brazil and optionally switch to satel
 * Google Earth Engine may encounter computational problems for visualization if the data is too large due to the size of the study area and/or the length of the time period. This may lead to scaling error messages and some objects would not be displayed on the map (or also Console). Visualization problems, however, do not affect image exports, which are always possible and only limited by the storage capacity of the user’s Google drive.
 * Typical scaling errors are *Computation timed out*, *Too many concurrent aggregations*, *User memory limit exceeded*, or *An internal error has occurred*. If one of these message appears in the print console or layer panel, your data is too big to be listed or visualised in the application. It might be helpful to reduce or split the length of the time frame or the size of the study area. **Exporting the data, however, is still possible!!**
 
-<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/error_2.png"> <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/error_1.png">
-
 
 Further information on how to work with Google Earth Engine and website construction can be found in the Earth Engine guides.
 * [Get Started with Earth Engine](https://developers.google.com/earth-engine/guides/getstarted)
