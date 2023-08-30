@@ -44,7 +44,9 @@ Below you can find a find step-by-step tutorial on how to open and work in the a
 
 ### 3.1 Case study (1)
 
-**Create single-season image composite for city of Würzburg, Germany.** (context: cropland monitoring)
+**Create single-season image composite for city of Würzburg, Germany.** 
+
+(context: cropland monitoring)
 
 In this example we want to create a single winter season image composite for the city of Würzburg, Germany. But before we can set all parameters, we need to import our study area to Google Earth Engine.
 
@@ -104,9 +106,11 @@ In this example we want to create a single winter season image composite for the
 
 ### 3.2 Case study (2)
 
-**Create multi-annual image composites for an area in the Amazon rainforest, Ariquemes, Brazil.** (context: deforestation monitoring)
+**Create multi-annual image composites for an area in the Amazon rainforest, Ariquemes, Brazil.** 
 
-In this example we want to create multi annual image composites for an deforestation area in the Amazon rainforest, north of Ariquemes, Brazil. In this example, we want to draw our study area on the map in the application instead of using an asset like in the previous example. 
+(context: deforestation monitoring)
+
+In this example we want to create multi annual image composites for a deforested area in the Amazon rainforest, north of Ariquemes, Brazil. In this example, we want to draw our study area on the map in the application instead of using an asset like in the previous example. 
 
 
 
@@ -131,7 +135,7 @@ When the application is opened, zoom in on Brazil and optionally switch to satel
 * When clicking "Raster export" (1), two image collections will appear in the *Console*-tab in the upper-right window and can be further inspected.
 * The first one includes all single images that were filtered according to the user input, the second one includes the composite images that can be exported.
 * In this example 539 satellite images (cloud cover 65%) were aggregated to eleven annual scenes, covering an area north of Ariquemes, Brazil.
-* The acquisition date of the respective images of the single image collection can be found in the last section of the respective names (yymmdd), under "features".
+* The acquisition date of the respective images of the single image collection can be found in the last section of the respective names (yyyymmdd), under "features".
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/example2_print.png">
 
