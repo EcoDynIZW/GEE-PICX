@@ -25,7 +25,7 @@ Below you can find a find step-by-step tutorial on how to open and work in the a
 5. [Appendix](#5-Appendix)
 
 
-
+![](".png")
  
 ## 1. How-to-open GEE-PICX 
 
