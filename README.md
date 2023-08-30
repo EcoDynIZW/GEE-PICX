@@ -44,22 +44,23 @@ Below you can find a find step-by-step tutorial on how to open and work in the a
 
 ### 3.1 Case study (1)
 
-**Create single-season image composite for city of Würzburg, Germany**
+**Create single-season image composite for city of Würzburg, Germany.** (context: cropland monitoring)
 
 In this example we want to create a single winter season image composite for the city of Würzburg, Germany. But before we can set all parameters, we need to import our study area to Google Earth Engine.
+
 
 
 #### a. Upload shapefile as asset to Googe Earth Engine
 
 * Download the shapefile of city of Würzburg from [this website](https://opendata.wuerzburg.de/explore/dataset/altstadt/export/) to your local computer.
-* Go to the *Assets*-tab in the top-left window and click (1) "New" --> (2) "Shape files".
-* A window will pop up from where you can (3) "Select" your study area shapefile from your local computer. Select all required extentions and click (4) "Upload".
+* Go to the *Assets*-tab in the top-left window and click "New" (1) --> "Shape files" (2).
+* A window will pop up from where you can "Select" (3) your study area shapefile from your local computer. Select all required extentions and click "Upload" (4).
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset.png"> 
 
-* You can then go to the *Tasks*-tab in the top-right window and wait until the shapefile upload is finished (this symbol ✓ (5) should appear).
-* Your new asset should be listed now in the *Assets*-tab, if not click (6) the "Refresh" button and it should appear at the given name.
-* In order to access the study area asset from the application, we need to copy the file path. This can be done by (7) clicking on the file in the *Assets*-tab and (8) copying the file path from the pop-up window. (9) Close the window afterwards to continue.
+* You can then go to the *Tasks*-tab in the top-right window and wait until the shapefile upload is finished (this symbol ✓ should appear (5) ).
+* Your new asset should be listed now in the *Assets*-tab, if not click the "Refresh" symbol (6) and it should appear at the given name.
+* In order to access the study area asset from the application, we need to copy the file path. This can be done by clicking on the file in the *Assets*-tab (7) and copying the file path from the pop-up window (8). Close (9) the window afterwards to continue.
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset_path.png">
 
@@ -67,7 +68,7 @@ In this example we want to create a single winter season image composite for the
 
 #### b. Select parameters
 
-* Now we can select all parameters *(Sentinel-2, path-to-asset, december 2022 - february 2023 (winter), 100 % cloud cover, default band selection, median, 10m resolution, UTM (EPSG: 32632))*
+* Now we can select all parameters *(Sentinel-2, path-to-asset, december 2022 - february 2023 (winter), 100 % cloud cover, default band selection, median, 10m resolution, UTM)*. All these parameters do not have to be specified in the given order.
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/parameter_example1.png">
 
@@ -75,15 +76,15 @@ In this example we want to create a single winter season image composite for the
 
 #### c. Export image
 
-* When clicking (1) "Raster export", two image collections will appear in the *Console*-tab in the upper-right window and can be further inspected.
+* When clicking "Raster export" (1), two image collections will appear in the *Console*-tab in the upper-right window and can be further inspected.
 * The first one (a) includes all single images that were filtered according to the user input, the second one (b) includes the composite image that can be exported.
-* In this example 35 satellite images (cloud cover 100%) were aggregated to one scene for the winter season in Würzburg, Germany. 
+* In this example 35 satellite images (cloud cover 100%) were aggregated to one scene covering Würzburg (Germany) in the winter season. 
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/print_example1.png">
 
-* To initiate the final image export to your Google Drive, you must go to the *Tasks*-tab and click (2) "Run" at each image (in this case only one).
-* A pop-up window with default setting will appear, but here you can further modify names, coordinate system, scale, or Google drive golder. It might be helpful to add the name of the study area or other characteristic parameters to not get confused later on when exporting more images. The default drive folder "GEE_Export" will be created automatically if not already existing.
-* Click (3) "Run" again, and the image will be processed and exported to the Google drive folder. 
+* To initiate the final image export to your Google Drive, you must go to the *Tasks*-tab and click "Run" (2) at each image (in this case only one).
+* A pop-up window with default setting will appear, where you can further modify names, coordinate system, scale, or Google drive golder. It might be helpful to add the name of the study area or other characteristic parameters to not get confused later on when exporting more images. The default drive folder "GEE_Export" will be created automatically if not already existing.
+* Click "Run" (3) again, and the image will be processed and exported to the Google drive folder. 
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/export_example1.png">
 
@@ -91,10 +92,10 @@ In this example we want to create a single winter season image composite for the
 
 #### d. Visualize image on map (optional)
 
-* GEE-PICX offers the opportunity to visualize the image composite(s) on the map prior to the export.
-* You can either (1) "Select a band combination" or (2) "Select a vegetation index" by which the image composite(s) will be added to the map. Whatever option you choose, the layer will be added to the map.
+* GEE-PICX offers the opportunity to visualize the image composite on the map (before or after the export).
+* You can either "Select a band combination" (1) or "Select a vegetation index" (2) by which the image composite(s) will be added to the map. Whatever option you choose, all layers will be added to the map.
 * In the layer panel box on the map you can either (un)select each layer by removing this symbol ✓ (3), or make them transparent with the fader.
-* If you click on the (4) "Settings" button, a window will pop up where you can modify the default visualisation parameters.
+* If you click on the "Settings" button (4), a window will pop up where you can modify the default visualisation parameters.
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/vis3_example1.png">
 
@@ -103,24 +104,54 @@ In this example we want to create a single winter season image composite for the
 
 ### 3.2 Case study (2)
 
-**Create multi-annual image composites for an area in the Amazon rainforest, Ariquemes, Brazil**
+**Create multi-annual image composites for an area in the Amazon rainforest, Ariquemes, Brazil.** (context: deforestation monitoring)
+
+In this example we want to create multi annual image composites for an deforestation area in the Amazon rainforest, north of Ariquemes, Brazil. In this example, we want to draw our study area on the map in the application instead of using an asset like in the previous example. 
 
 
 
 #### a. Draw study area on map in Google Earth Engine
 
+When the application is opened, zoom in on Brazil and optionally switch to satellite mode (1) to better recognize deforestation patterns. After click "Draw your aoi" (2) you can draw one (or more) rectangle(s) on the map (3). A "geomtry"-variable will appear on top of the the code editor (3) which contains information about the geomtry of the new study area. In case you want to re-draw your study area, click "Clear your aoi" (4), then the "geomtry"-variable will disappear and you can again "Draw your aoi" (2).
+
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/example2_draw_polygon.png">
+
 
 
 #### b. Select parameters
+
+* Now we can select all other parameters *(Sentinel-2, year range 1992 - 2002,  month range 1 - 12 (annual image composites for eleven years), 65 % cloud cover, default band selection, median, 30m resolution, UTM)*. All these parameters (including drawing the study area) do not have to be specified in the given order.
+
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/example2_parameter.png">
 
 
 
 #### c. Export images
 
+* When clicking "Raster export" (1), two image collections will appear in the *Console*-tab in the upper-right window and can be further inspected.
+* The first one includes all single images that were filtered according to the user input, the second one includes the composite images that can be exported.
+* In this example 539 satellite images (cloud cover 65%) were aggregated to eleven annual scenes, covering an area north of Ariquemes, Brazil.
+* The acquisition date of the respective images of the single image collection can be found in the last section of the respective names (yymmdd), under "features".
+
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/example2_print.png">
+
+* To initiate the final image export to your Google Drive, you must go to the *Tasks*-tab and click "Run" (2) at each image (in this case eleven times if you want to download them all).
+* A pop-up window with default settings will appear each time, where you can further modify names, coordinate system, scale, or Google drive golder. It might be helpful to add the name of the study area or other characteristic parameters to not get confused later on when exporting more images. The default drive folder "GEE_Export" will be created automatically if not already existing.
+* Click "Run" (3) again, and the image will be processed and exported to the Google drive folder.
+* Multiple images can be exported in parallel.
+
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/example2_export.png">
+
 
 
 #### d. Visualize images on map (optional)
 
+* GEE-PICX offers the opportunity to visualize the image composites on the map (before or after the export).
+* You can either "Select a band combination" or "Select a vegetation index" (1) by which the image composite(s) will be added to the map. Whatever option you choose, all layers will be added to the map.
+* In the layer panel box on the map you can either (un)select each layer by removing this symbol ✓ (2), or make them transparent with the fader.
+* If you click on the "Settings" button (3), a window will pop up where you can modify the default visualisation parameters.
+
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/example2_vis.png">
 
 
 
