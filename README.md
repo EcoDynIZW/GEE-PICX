@@ -8,7 +8,7 @@ We followed four design principles in developing GEE-PICX:
 1. **Flexibility of user input.** Users have control over choice of satellite platform (Landsat or Sentinel-2), study area boundaries, time range, maximum cloud cover (for single images), aggregation mode, and image bands. Relevant images are automatically selected from the data catalog according to user input.
 2. **Ease of use.** The application features a self-explanatory interface, requires only a Google account, a web browser and internet connection, and has no hardware or software requirements thanks to server-side processing.
 3. **Export of large data sets.** Only limited by Google drive storage capacity.
-4. **Generate analysis-ready data.** Generates cloud-free image mosaics with spectral bands, spectral indices, and a valid-pixel band for quality assessment (more info see [Appendix](#-5.-Appendix)). Export image resolution and coordinate reference system are customizable.
+4. **Generate analysis-ready data.** Generates cloud-free image mosaics with spectral bands, spectral indices, and a valid-pixel band for quality assessment (more info see [Appendix](#-Appendix)). Export image resolution and coordinate reference system are customizable.
 
 The application allows users without experience in remote sensing to generate cloud-free and analysis-ready image composites for custom study areas and points in time for a multitude of applications in ecology and beyond. 
 
@@ -181,7 +181,7 @@ Further information on how to work with Google Earth Engine and website construc
 
 
 
-## 5. Appendix
+## Appendix
 
 *Table: Available spectral indices derived from Landsat or Sentinel-2 imagery.*
 
