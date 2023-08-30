@@ -157,6 +157,8 @@ When the application is opened, zoom in on Brazil and optionally switch to satel
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/example2_vis.png">
 
+*Figure: Comparison of annual GEE-PICX image composites from 1992 to 2002 reveals an increasing deforestation pattern.*
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/example2_ts.png">
 
 
 ## 4. Important-To-Know when exporting & visualising image composites
