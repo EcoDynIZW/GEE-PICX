@@ -17,9 +17,9 @@ Below you can find a find step-by-step tutorial on how to open and work in the a
 1. [How-to-open GEE-PICX](#1-How-to-open-GEE-PICX)
 2. [Default parameters](#2-Default-parameters)
 3. [Example tutorials](#Example-tutorials)
-    1. [Case study (1): Cropland monitoring](#3-1-Case-study-(1))
-    2. [Case study (2): Deforestation monitoring](#3-2-Case-study-(2))
-4. [Important-To-Know when exporting & visualising image composites](#4-Important-To-Know-when-exporting-&-visualising-image-composites)
+    1. [Case study (1): Cropland monitoring](#31-case-study-1)
+    2. [Case study (2): Deforestation monitoring](#32-case-study-2)
+4. [Important-To-Know when exporting & visualising image composites](#4-important-to-know-when-exporting--visualising-image-composites)
 5. [Appendix](#5-Appendix)
 
 
