@@ -8,7 +8,7 @@ We followed four design principles in developing GEE-PICX:
 1. **Flexibility of user input.** Users have control over choice of satellite platform (Landsat or Sentinel-2), study area boundaries, time range, maximum cloud cover (for single images), aggregation mode, and image bands. Relevant images are automatically selected from the data catalog according to user input.
 2. **Ease of use.** The application features a self-explanatory interface, requires only a Google account, a web browser and internet connection, and has no hardware or software requirements thanks to server-side processing.
 3. **Export of large data sets.** Only limited by Google drive storage capacity.
-4. **Generate analysis-ready data.** Generates cloud-free image mosaics with spectral bands, spectral indices, and a quality assessment band (valid scenes per pixel). Export image resolution and coordinate reference system are customizable.
+4. **Generate analysis-ready data.** Generates cloud-free image mosaics with spectral bands, spectral indices, and a valid-pixel band for quality assessment (more info see [Appendix](## 5. Appendix)). Export image resolution and coordinate reference system are customizable.
 
 The application allows users without experience in remote sensing to generate cloud-free and analysis-ready image composites for custom study areas and points in time for a multitude of applications in ecology and beyond. 
 
@@ -163,9 +163,13 @@ When the application is opened, zoom in on Brazil and optionally switch to satel
 
 * Multiple image exports run in parallel and depending on study area size, length of time frame each export can take from minutes to hours (or even days for study regions measuring hundreds of thousands of square kilometers).
 * When exporting large datasets, Google Earth Engine splits each image into smaller tiles. After downloading them from Google drive, they can either be merged to a large contiguous mosaic, or be used as a virtual raster.
-* All indices have a valid value range from -1 to 1 in the application. All band values of export images are multiplied by 10,000 except for the valid pixel band.
+* All band values of the export images are multiplied by 10,000, except for the valid pixel band. Whenn visualising the data in the application, all spectral indices have a valid value range from -1 to 1 and the wavelength range of the spectral bands are specified in µm.
+* The valid-pixel band indicates the valid scenes per pixel of the image composite and can be used for data quality assessment.
+* Data gaps ("no data") in the image composites will be displayed as 0 in the exported images, which could affect subsequent analyses. The 0_to_NA.R script offers an opportunity to convert all 0 to NA in the R Environment. *(Data gaps occur when a pixel is covered by clouds in all images over the entire time frame, because the applied cloud mask detects and filters out all clouds before aggregation.)* 
+
 * Google Earth Engine may encounter computational problems for visualization if the data is too large due to the size of the study area and/or the length of the time period. This may lead to scaling error messages and some objects would not be displayed on the map (or also Console). Visualization problems, however, do not affect image exports, which are always possible and only limited by the storage capacity of the user’s Google drive.
-* Typical scaling errors are *Computation timed out*, *Too many concurrent aggregations*, *User memory limit exceeded*, or *An internal error has occurred*. If one of these message appear in the print console, or the browser in which you opened the app tells you 
+* Typical scaling errors are *Computation timed out*, *Too many concurrent aggregations*, *User memory limit exceeded*, or *An internal error has occurred*. If one of these message appears in the print console or layer panel, your data is too big to be listed or visualised in the application. It might be helpful to reduce or split the length of the time frame or the size of the study area. **Exporting the data, however, is still possible!!**
+<img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/error_2.png"> <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/error_1.png">
 
 
 Further information on how to work with Google Earth Engine and website construction can be found in the Earth Engine guides.
