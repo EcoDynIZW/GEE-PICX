@@ -1,6 +1,6 @@
 # GEE-PICX 
 
-***P*henological *I*maging and *C*loud-free *X*port**
+***G**oogle **E**arth **E**ngine - **P**henological **I**maging and **C**loud-free **X**port*
 
 ## Overview
 
@@ -22,7 +22,7 @@ Below you can find a find step-by-step tutorial on how to open and work in the a
     1. [Case study (1): Create single-season image composite for city of Würzburg, Germany.](#31-case-study-1)
     2. [Case study (2): Create multi-annual image composites for an area in the Amazon rainforest, Ariquemes, Brazil.](#32-case-study-2)
 4. [Important-To-Know when exporting & visualising image composites](#4-important-to-know-when-exporting--visualising-image-composites)
-5. [Appendix: Background Information and GEE guides](#5-Appendix)
+5. [Appendix](#5-Appendix)
 
 
 
@@ -184,12 +184,12 @@ When the application is opened, zoom in on Brazil and optionally switch to satel
 * Typical scaling errors are *Computation timed out*, *Too many concurrent aggregations*, *User memory limit exceeded*, or *An internal error has occurred*. If one of these message appears in the print console or layer panel, your data is too big to be listed or visualised in the application. It might be helpful to reduce or split the length of the time frame or the size of the study area. **Exporting the data, however, is still possible!!**
 
 
-Further information on how to work with Google Earth Engine and website construction can be found in the Earth Engine guides.
-* [Get Started with Earth Engine](https://developers.google.com/earth-engine/guides/getstarted)
-* [Earth Engine Code Editor](https://developers.google.com/earth-engine/guides/playground)
-* [Exporting Images](https://developers.google.com/earth-engine/guides/exporting_images)
-* [Asset Manager](https://developers.google.com/earth-engine/guides/asset_manager)
-
+**Further information on how to work with Google Earth Engine and website construction can be found in the Earth Engine guides.**
+* Get Started with Earth Engine: [https://developers.google.com/earth-engine/guides/getstarted](https://developers.google.com/earth-engine/guides/getstarted)
+* Earth Engine Code Editor: [https://developers.google.com/earth-engine/guides/playground](https://developers.google.com/earth-engine/guides/playground)
+* Exporting Images: [https://developers.google.com/earth-engine/guides/exporting_images](https://developers.google.com/earth-engine/guides/exporting_images)
+* Upload polygon (shapefile) to GEE: [https://developers.google.com/earthengine/guides/table_upload](https://developers.google.com/earthengine/guides/table_upload)
+* Manage assets and make public: [https://developers.google.com/earth-engine/guides/asset_manager](https://developers.google.com/earth-engine/guides/asset_manager)
 
 
 
@@ -210,12 +210,5 @@ BSI | Bare Soil Index | (SWIR1+Red)-(NIR+Blue)(SWIR1+Red)+(NIR+Blue) | Highlight
 NDWI | Normalized Difference Water Index | (Green-NIR)(Green+NIR) | Sensitive to water bodies. Useful for water resource management, wetland monitoring, and flood assessment. 
 
 
-
-GEE guides
-
-* MSPA: [https://forest.jrc.ec.europa.eu/en/activities/lpa/mspa/](https://forest.jrc.ec.europa.eu/en/activities/lpa/mspa/)
-* How to use GEE: [https://developers.google.com/earth-engine/guides/getstarted](https://developers.google.com/earth-engine/guides/getstarted)
-* How to upload your polygon (shapefile) in GEE: [https://developers.google.com/earthengine/guides/table_upload](https://developers.google.com/earthengine/guides/table_upload)
-* How to share the uploaded polygon so others can use: [https://developers.google.com/earth-engine/guides/asset_manager](https://developers.google.com/earth-engine/guides/asset_manager)
 
 
