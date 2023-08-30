@@ -1,4 +1,4 @@
-#GEE-PICX 
+# GEE-PICX 
 
 ***P**henological **I**maging and **C**loud-free **X**port*
 
@@ -181,7 +181,7 @@ Further information on how to work with Google Earth Engine and website construc
 
 
 
-##Appendix
+## Appendix
 
 *Table: Available spectral indices derived from Landsat or Sentinel-2 imagery.*
 
