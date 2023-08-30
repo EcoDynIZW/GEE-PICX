@@ -1,6 +1,8 @@
 # GEE-PICX 
 
-***P**henological **I**maging and **C**loud-free **X**port*
+***P*henological *I*maging and *C*loud-free *X*port**
+
+## Overview
 
 **GEE-PICX is a Google Earth Engine web application for generating and exporting cloud-free and analysis-ready composites of satellite images for user-defined areas and time steps with global data coverage.**
 
@@ -20,7 +22,8 @@ Below you can find a find step-by-step tutorial on how to open and work in the a
     1. [Case study (1): Create single-season image composite for city of Würzburg, Germany.](#31-case-study-1)
     2. [Case study (2): Create multi-annual image composites for an area in the Amazon rainforest, Ariquemes, Brazil.](#32-case-study-2)
 4. [Important-To-Know when exporting & visualising image composites](#4-important-to-know-when-exporting--visualising-image-composites)
-5. [Appendix](#5-Appendix)
+5. [Appendix: Background Information and GEE guides](#5-Appendix)
+
 
 
  
@@ -205,5 +208,14 @@ NBR | Normalized Burn Ratio | (NIR-SWIR2)(NIR+SWIR2) | Detects and quantifies bu
 NBR2 | Normalized Burn Ratio 2 | (SWIR1-SWIR2)(SWIR1+SWIR2) | A modification of the NBR, useful in postfire recovery studies, highlights vegetation with high water content (USGS, 2022c).
 BSI | Bare Soil Index | (SWIR1+Red)-(NIR+Blue)(SWIR1+Red)+(NIR+Blue) | Highlights bare ground and rock surfaces. Useful in identification of soil erosion, land degradation, and urbanization processes.
 NDWI | Normalized Difference Water Index | (Green-NIR)(Green+NIR) | Sensitive to water bodies. Useful for water resource management, wetland monitoring, and flood assessment. 
+
+
+
+GEE guides
+
+* MSPA: [https://forest.jrc.ec.europa.eu/en/activities/lpa/mspa/](https://forest.jrc.ec.europa.eu/en/activities/lpa/mspa/)
+* How to use GEE: [https://developers.google.com/earth-engine/guides/getstarted](https://developers.google.com/earth-engine/guides/getstarted)
+* How to upload your polygon (shapefile) in GEE: [https://developers.google.com/earthengine/guides/table_upload](https://developers.google.com/earthengine/guides/table_upload)
+* How to share the uploaded polygon so others can use: [https://developers.google.com/earth-engine/guides/asset_manager](https://developers.google.com/earth-engine/guides/asset_manager)
 
 
