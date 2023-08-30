@@ -14,6 +14,14 @@ The application allows users without experience in remote sensing to generate cl
 
 Below you can find a find step-by-step tutorial on how to open and work in the application using two case studies.
 
+> Structure
+1. [How-to-open GEE-PICX](#1-How-to-open-GEE-PICX)
+2. [Default parameters](#2-Default-parameters)
+3. [Example tutorials](#3-Example-tutorials)
+   3.1 [Case study (1)](#3-1-Case-study-(1))
+   3.2 [Case study (2)](#3-2-Case-study-(2))
+4. [Important-To-Know when exporting & visualising image composites](#4-Important-To-Know-when-exporting-&-visualising-image-composites)
+
 
 
  
