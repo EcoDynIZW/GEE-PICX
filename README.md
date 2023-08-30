@@ -37,7 +37,7 @@ Below you can find a find step-by-step tutorial on how to open and work in the a
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/open_app.png">
 
 
-
+![](".png")
 
 ## 2. Default parameters
 
@@ -47,7 +47,7 @@ Below you can find a find step-by-step tutorial on how to open and work in the a
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/default_interface5.png">
 
 
-
+![](".png")
 
 ## 3. Example tutorials 
 
@@ -60,7 +60,7 @@ Below you can find a find step-by-step tutorial on how to open and work in the a
 
 In this example we want to create a single winter season image composite for the city of Würzburg, Germany. But before we can set all parameters, we need to import our study area to Google Earth Engine.
 
-
+![](".png")
 
 #### a. Upload shapefile as asset to Googe Earth Engine
 
@@ -76,7 +76,7 @@ In this example we want to create a single winter season image composite for the
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/import_asset_path.png">
 
-
+![](".png")
 
 #### b. Select parameters
 
@@ -84,7 +84,7 @@ In this example we want to create a single winter season image composite for the
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/parameter_example1.png">
 
-
+![](".png")
 
 #### c. Export image
 
@@ -100,7 +100,7 @@ In this example we want to create a single winter season image composite for the
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/export_example1.png">
 
-
+![](".png")
 
 #### d. Visualize image on map (optional)
 
@@ -112,7 +112,7 @@ In this example we want to create a single winter season image composite for the
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/vis3_example1.png">
 
 
-
+![](".png")
 
 ### 3.2 Case study (2)
 
@@ -122,7 +122,7 @@ In this example we want to create a single winter season image composite for the
 
 In this example we want to create multi annual image composites for a deforested area in the Amazon rainforest, north of Ariquemes, Brazil. In this example, we want to draw our study area on the map in the application instead of using an asset like in the previous example. 
 
-
+![](".png")
 
 #### a. Draw study area on map in Google Earth Engine
 
@@ -130,7 +130,7 @@ When the application is opened, zoom in on Brazil and optionally switch to satel
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/example2_draw_polygon.png">
 
-
+![](".png")
 
 #### b. Select parameters
 
@@ -138,7 +138,7 @@ When the application is opened, zoom in on Brazil and optionally switch to satel
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/example2_parameter.png">
 
-
+![](".png")
 
 #### c. Export images
 
@@ -156,7 +156,7 @@ When the application is opened, zoom in on Brazil and optionally switch to satel
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/example2_export.png">
 
-
+![](".png")
 
 #### d. Visualize images on map (optional)
 
@@ -170,6 +170,7 @@ When the application is opened, zoom in on Brazil and optionally switch to satel
 *Figure: Comparison of annual GEE-PICX image composites from 1992 to 2002 reveals an increasing deforestation pattern.*
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/example2_ts.png">
 
+![](".png")
 
 ## 4. Important-to-know & further information
 
@@ -180,8 +181,6 @@ You should keep this in mind when exporting image composites from or visualizing
 * All band values of the export images are multiplied by 10,000, except for the valid pixel band. Whenn visualising the data in the application, all spectral indices have a valid value range from -1 to 1 and the wavelength range of the spectral bands are specified in µm.
 * The valid-pixel band indicates the valid scenes per pixel of the image composite and can be used for data quality assessment.
 * Data gaps ("no data") in the image composites will be displayed as 0 in the exported images, which could affect subsequent analyses. The 0_to_NA.R script offers an opportunity to convert all 0 to NA in the R Environment. *(Data gaps occur when a pixel is covered by clouds in all images over the entire time frame, because the applied cloud mask detects and filters out all clouds before aggregation.)*
-![](".png")
-
 * Google Earth Engine may encounter computational problems for visualization if the data is too large due to the size of the study area and/or the length of the time period. This may lead to scaling error messages and some objects would not be displayed on the map (or also Console). Visualization problems, however, do not affect image exports, which are always possible and only limited by the storage capacity of the user’s Google drive.
 * Typical scaling errors are *Computation timed out*, *Too many concurrent aggregations*, *User memory limit exceeded*, or *An internal error has occurred*. If one of these message appears in the print console or layer panel, your data is too big to be listed or visualised in the application. It might be helpful to reduce or split the length of the time frame or the size of the study area. **Exporting the data, however, is still possible!!**
 
@@ -195,6 +194,7 @@ You should keep this in mind when exporting image composites from or visualizing
 * Manage assets and make public: [https://developers.google.com/earth-engine/guides/asset_manager](https://developers.google.com/earth-engine/guides/asset_manager)
 
 
+![](".png")
 
 ## 5. Appendix
 
