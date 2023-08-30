@@ -83,7 +83,7 @@ In this example we want to create a single winter season image composite for the
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/print_example1.png">
 
 * To initiate the final image export to your Google Drive, you must go to the *Tasks*-tab and click "Run" (2) at each image (in this case only one).
-* A pop-up window with default setting will appear, where you can further modify names, coordinate system, scale, or Google drive golder. It might be helpful to add the name of the study area or other characteristic parameters to not get confused later on when exporting more images. The default drive folder "GEE_Export" will be created automatically if not already existing.
+* A pop-up window with default settings will appear, where you can further modify names, coordinate system, scale, or Google drive folder. It might be helpful to add the name of the study area or other characteristic parameters to not get confused later on when exporting more images. The default drive folder "GEE_Export" will be created automatically if not already existing.
 * Click "Run" (3) again, and the image will be processed and exported to the Google drive folder. 
 
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/export_example1.png">
@@ -136,7 +136,7 @@ When the application is opened, zoom in on Brazil and optionally switch to satel
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/example2_print.png">
 
 * To initiate the final image export to your Google Drive, you must go to the *Tasks*-tab and click "Run" (2) at each image (in this case eleven times if you want to download them all).
-* A pop-up window with default settings will appear each time, where you can further modify names, coordinate system, scale, or Google drive golder. It might be helpful to add the name of the study area or other characteristic parameters to not get confused later on when exporting more images. The default drive folder "GEE_Export" will be created automatically if not already existing.
+* A pop-up window with default settings will appear each time, where you can further modify names, coordinate system, scale, or Google drive folder. It might be helpful to add the name of the study area or other characteristic parameters to not get confused later on when exporting more images. The default drive folder "GEE_Export" will be created automatically if not already existing.
 * Click "Run" (3) again, and the image will be processed and exported to the Google drive folder.
 * Multiple images can be exported in parallel.
 
