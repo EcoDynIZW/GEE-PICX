@@ -167,8 +167,10 @@ When the application is opened, zoom in on Brazil and optionally switch to satel
 * The valid-pixel band indicates the valid scenes per pixel of the image composite and can be used for data quality assessment.
 * Data gaps ("no data") in the image composites will be displayed as 0 in the exported images, which could affect subsequent analyses. The 0_to_NA.R script offers an opportunity to convert all 0 to NA in the R Environment. *(Data gaps occur when a pixel is covered by clouds in all images over the entire time frame, because the applied cloud mask detects and filters out all clouds before aggregation.)* 
 
+
 * Google Earth Engine may encounter computational problems for visualization if the data is too large due to the size of the study area and/or the length of the time period. This may lead to scaling error messages and some objects would not be displayed on the map (or also Console). Visualization problems, however, do not affect image exports, which are always possible and only limited by the storage capacity of the user’s Google drive.
 * Typical scaling errors are *Computation timed out*, *Too many concurrent aggregations*, *User memory limit exceeded*, or *An internal error has occurred*. If one of these message appears in the print console or layer panel, your data is too big to be listed or visualised in the application. It might be helpful to reduce or split the length of the time frame or the size of the study area. **Exporting the data, however, is still possible!!**
+
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/error_2.png"> <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/error_1.png">
 
 
