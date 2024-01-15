@@ -29,8 +29,8 @@ Below you can find a find step-by-step tutorial on how to open and work in the a
  
 ## 1. How-to-open GEE-PICX 
 
-* Follow [this link](https://code.earthengine.google.com/af4d2128c6acbd739a4bd44854b429fb) and open the application in Google Earth Engine's code editor mode 
-* **OR** add the GEE-PIXC repository to your Google Earth Engine via [https://code.earthengine.google.com/?accept_repo=users/gisizw/GEE-PICX](https://code.earthengine.google.com/?accept_repo=users/gisizw/GEE-PICX) (it will appear under the "Reader" tab in the left window).
+* Follow [this link](https://code.earthengine.google.com/03e9dbbd69ca3c0b9955cca6caf9fb45) and open the application in Google Earth Engine's code editor mode 
+* **OR** add the GEE-PIXC repository to your Google Earth Engine via [https://code.earthengine.google.com/?accept_repo=users/gisizw/GEE-PICX](https://code.earthengine.google.com/?accept_repo=users/gisizw/GEE-PICX) (it will appear under the "Reader" tab in the left window). *Code License: Apache 2.0.*
 
 * In case you are not already logged in to your Google account, you will be asked to log in and/or register a cloud project before you are directed to the application interface.
 
@@ -214,7 +214,6 @@ NBR | Normalized Burn Ratio | (NIR-SWIR2)(NIR+SWIR2) | Detects and quantifies bu
 NBR2 | Normalized Burn Ratio 2 | (SWIR1-SWIR2)(SWIR1+SWIR2) | A modification of the NBR, useful in postfire recovery studies, highlights vegetation with high water content.
 BSI | Bare Soil Index | (SWIR1+Red)-(NIR+Blue)(SWIR1+Red)+(NIR+Blue) | Highlights bare ground and rock surfaces. Useful in identification of soil erosion, land degradation, and urbanization processes.
 NDWI | Normalized Difference Water Index | (Green-NIR)(Green+NIR) | Sensitive to water bodies. Useful for water resource management, wetland monitoring, and flood assessment. 
-
 
 
 
