@@ -29,8 +29,8 @@ Below you can find a find step-by-step tutorial on how to open and work in the a
  
 ## 1. How-to-open GEE-PICX 
 
-* Follow [this link](https://code.earthengine.google.com/03e9dbbd69ca3c0b9955cca6caf9fb45) and open the application in Google Earth Engine's code editor mode 
-* **OR** add the GEE-PIXC repository to your Google Earth Engine via [https://code.earthengine.google.com/?accept_repo=users/gisizw/GEE-PICX](https://code.earthengine.google.com/?accept_repo=users/gisizw/GEE-PICX) (it will appear under the "Reader" tab in the left window). *Code License: Apache 2.0.*
+* Option 1: Follow [this link](https://code.earthengine.google.com/03e9dbbd69ca3c0b9955cca6caf9fb45) and open the application in Google Earth Engine's code editor mode 
+* Option 2: Add the GEE-PICX repository to your Google Earth Engine account by clicking on the link below (it will appear under the "Reader" tab in the left window): \n [https://code.earthengine.google.com/?accept_repo=users/gisizw/GEE-PICX](https://code.earthengine.google.com/?accept_repo=users/gisizw/GEE-PICX) . *Code License: Apache 2.0.*
 
 * In case you are not already logged in to your Google account, you will be asked to log in and/or register a cloud project before you are directed to the application interface.
 
