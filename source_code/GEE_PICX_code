@@ -42,6 +42,7 @@ var startMonth;
 var endMonth;
 var exportScale;
 var exportCrs;
+var exportScaleClicked;
 var maxCloudProbability;
 var reducerString = "_median";
 var reducers = ee.Reducer.median();
@@ -84,19 +85,25 @@ var compositeDic = {'True color composites [R-G-B]' : ["R", "G","B"],
 
 // Dictionaries and lists of available indices 
 var indexDic = {'NDVI' : ['NDVI'], 
-                'EVI2' : ['EVI2'], 
+                'EVI' : ['EVI'], 
                 'SAVI' : ['SAVI'], 
                 'MSAVI' : ['MSAVI'], 
                 'NDMI': ['NDMI'], 
                 'NBR':['NBR'],
-                'NBR2': ['NBR2'],
+                //'NBR2': ['NBR2'],   //uncomment to add NBR2 to list
                 'NDWI': ['NDWI'],
-                'BSI': ['BSI']
+                'BSI': ['BSI'],
+                'GNDVI' : ['GNDVI'], 
+                'NDBI' : ['NDBI'], 
+                'NDSI' : ['NDSI']
 };
 var indexList = [['B'], ['G'], ['R'], ['NIR'], ['SWIR1'],
                  ['SWIR2'], ['RedEdge1'], ['RedEdge4'], ['NDVI'],
-                 ['EVI2'], ['SAVI'], ['MSAVI'], ['NDMI'],
-                 ['NBR'], ['NBR2'], ['NDWI'], ['BSI'], ['valid_pixels']];
+                 ['EVI'], ['SAVI'], ['MSAVI'], ['NDMI'],
+                 ['NBR'], //['NBR2'],     //uncomment to add NBR2 to list
+                 ['NDWI'], ['BSI'], 
+                 ['GNDVI'], ['NDBI'], ['NDSI'],                 
+                 ['valid_pixels']];
 
 // Load image collections 
 // Landsat
@@ -116,6 +123,10 @@ var drawingTools = Map.drawingTools();
 /**************************
  * ***** Functions *****
  **************************/
+// Some of the following functions are the same or transformed functions 
+// in the scripts of "Introduction to Google Earth Engine Course" from Marius Philipp (University Wuerzburg). 
+// When the functions have the same forms as his script, you can see the script's name. 
+
 function processingLS89(startYear,endYear,startMonth,endMonth,maxCloudProbability){
   var mergedImage = imCol8.merge(imCol9);
   
@@ -150,16 +161,19 @@ function processingLS89(startYear,endYear,startMonth,endMonth,maxCloudProbabilit
   
   print("Single Landsat 8/9 images (coudmasked)", filteredImage.sort('system:time_start'));  
   
-  // Add vegetation indices        
+  // Add spectral indices        
   var lsCollection =  filteredImage.map(ndvi)
-                                   .map(evi2)
+                                   .map(evi)
                                    .map(savi)
                                    .map(msavi)
                                    .map(ndmiLs)
                                    .map(nbr)
-                                   .map(nbr2)
+                                   //.map(nbr2)   //uncomment to add NBR2 to list
                                    .map(ndwi)
-                                   .map(bsi);
+                                   .map(bsi)
+                                   .map(gndvi)
+                                   .map(ndbi)
+                                   .map(ndsi);
                                    
   // Sort Imagecollection by time
   lsCollection = lsCollection.sort('system:time_start');
@@ -247,6 +261,37 @@ function processingLS89(startYear,endYear,startMonth,endMonth,maxCloudProbabilit
   return finalLSCol;         
 } 
 
+function checkNumberOfImagesL89(startYear,endYear,startMonth,endMonth,maxCloudProbability){
+  var mergedImage = imCol8.merge(imCol9);
+  
+  if (ee.Number(startMonth).getInfo() > ee.Number(endMonth).getInfo()) {
+    // Filter images for the first part of the year
+    var monthFilteredImage1= mergedImage.filter(ee.Filter.calendarRange(startYear.add(1), endYear, 'year'))
+                                                .filter(ee.Filter.calendarRange(1, endMonth, 'month'));
+    // Filter images for the second part of the year
+    var monthFilteredImage2= mergedImage.filter(ee.Filter.calendarRange(startYear, endYear.subtract(1), 'year'))
+                                                .filter(ee.Filter.calendarRange(startMonth, 12, 'month'))
+                           
+    // Merge the filtered images from both parts                       
+    var monthFilteredImageMerged = monthFilteredImage1.merge(monthFilteredImage2).sort("system:time_start");                      
+    
+    // Apply additional filters and processing steps to the merged images
+    var filteredImage = monthFilteredImageMerged
+                           .filter(ee.Filter.bounds(selFeature))
+                           .filter(ee.Filter.lte('CLOUD_COVER', maxCloudProbability))
+
+
+  } else {
+    // Filter images for the selected time range and apply additional filters and processing steps
+    var filteredImage = mergedImage.filter(ee.Filter.bounds(selFeature))
+                           .filter(ee.Filter.lte('CLOUD_COVER', maxCloudProbability))
+                           .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
+                           .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
+  } 
+  
+  return filteredImage.size() 
+} 
+
 // preprocess landsat4, 5, 7
 function filterLandsat457(image,startMonth,endMonth,maxCloudProbability){
   if (ee.Number(startMonth).getInfo() > ee.Number(endMonth).getInfo()) {
@@ -322,14 +367,17 @@ function mergeLandsat(startYear, endYear,startMonth,endMonth){
                                             
   // Add all indices as bands to image collection
   var lsCollection =  mergedImage.map(ndvi)
-                                   .map(evi2)
+                                   .map(evi)
                                    .map(savi)
                                    .map(msavi)
                                    .map(ndmiLs)
                                    .map(nbr)
-                                   .map(nbr2)
+                                   //.map(nbr2)  //uncomment to add NBR2 to list
                                    .map(ndwi)
-                                   .map(bsi);
+                                   .map(bsi)
+                                   .map(gndvi)
+                                   .map(ndbi)
+                                   .map(ndsi);
                                    
   print("Single Landsat 5,7,8,9 images (cloudmasked)", mergedImage.sort('system:time_start'));  
   
@@ -419,6 +467,45 @@ function mergeLandsat(startYear, endYear,startMonth,endMonth){
   return finalLandsatCol;                             
 }
 
+function checkNumberOfImagesLS(startYear, endYear,startMonth,endMonth){
+  var lsCollection = filterLandsat457(imCol5,startMonth,endMonth,maxCloudProbability)
+                                    .merge(filterLandsat457(imCol7,startMonth,endMonth,maxCloudProbability))
+                                    .merge(filterLandsat8(imCol8,startMonth,endMonth,maxCloudProbability))
+                                    .merge(filterLandsat8(imCol9,startMonth,endMonth,maxCloudProbability))
+                                    .filter(ee.Filter.calendarRange(startYear, endYear,'year'))
+                                    .sort('system:time_start');
+  
+  return lsCollection.size();                             
+}
+
+var checkNumberOfImagesS2 = function(startYear,endYear,startMonth,endMonth,maxCloudProbability){
+  var sentinel2Bounded = sentinel.filter(ee.Filter.bounds(selFeature))
+                                 .filter(ee.Filter.lte('CLOUDY_PIXEL_PERCENTAGE', maxCloudProbability));
+  
+   if (ee.Number(startMonth).getInfo() > ee.Number(endMonth).getInfo()) {
+    var s2Image1= sentinel2Bounded.filter(ee.Filter.calendarRange(startYear.add(1), endYear, 'year'))
+                                                .filter(ee.Filter.calendarRange(1, endMonth, 'month'));
+
+    var s2Image2= sentinel2Bounded.filter(ee.Filter.calendarRange(startYear, endYear.subtract(1), 'year'))
+                                                .filter(ee.Filter.calendarRange(startMonth, 12, 'month'));
+                           
+                           
+    var s2Filtered = s2Image1.merge(s2Image2).sort("system:time_start").map(maskEdges);
+    
+
+  } else {
+  var s2Filtered = sentinel2Bounded.filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
+                                 .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
+                                 .map(maskEdges);
+
+    }
+
+    return s2Filtered.size() 
+}
+
+
+
+
 // filter sentinel-2 by time and aoi and mask clouds. 
 var filterAndMaskS2 = function(startYear,endYear,startMonth,endMonth,maxCloudProbability){
   var sentinel2Bounded = sentinel.filter(ee.Filter.bounds(selFeature))
@@ -475,16 +562,19 @@ var filterAndMaskS2 = function(startYear,endYear,startMonth,endMonth,maxCloudPro
                                                                                .map(applyScaleFactorsS2);
                                                                                
   
-  // add vegetation index 
+  // add spectral index 
   var s2Collection =  s2FilteredCloudMaskedRenamedHarmonized.map(ndvi)
-                                                            .map(evi2)
+                                                            .map(evi)
                                                             .map(savi)
                                                             .map(msavi)
                                                             .map(ndmiS2)
                                                             .map(nbr)
-                                                            .map(nbr2)
+                                                            //.map(nbr2)  //uncomment to add NBR2 to list
                                                             .map(ndwi)
-                                                            .map(bsi);
+                                                            .map(bsi)
+                                                            .map(gndvi)
+                                                            .map(ndbi)
+                                                            .map(ndsi);
                                                             
   print("Single Sentinel-2 images (cloudmasked)",s2FilteredCloudMaskedRenamedHarmonized.sort('system:time_start'));         
   
@@ -692,8 +782,7 @@ function applyScaleFactorsS2(image) {
 }
 
 
-//------------------------ Define functions for vegetation indices --------------------------
-// Source: "Philipp, Marius. SS21, 'Introduction to Google Earth Engine: Session.5 ImageCollection2', University Wuerzburg"
+//------------------------ Define functions for Spectral indices --------------------------
 
 function bsi(image) {
   var bsiVar = image.expression(
@@ -724,16 +813,17 @@ function ndvi(image) {
     .float();
 }
 
-function evi2(image) {
-  var evi2Var = image.expression(
-    "2.4 * (NIR - RED) / (NIR + RED + 1)",
+function evi(image) {
+  var eviVar = image.expression(
+    "2.5 * (NIR - RED) / (NIR + 6*RED - 7.5*BLUE + 1)",
 {
     NIR: image.select("NIR"),
     RED: image.select("R"),
+    BLUE: image.select("B"),
     });
   return image
-    .addBands(evi2Var
-    .rename('EVI2'))
+    .addBands(eviVar
+    .rename('EVI'))
     .float();
 }
 
@@ -802,18 +892,20 @@ function nbr(image) {
     .float();
 }
 
-function nbr2(image) {
-  var nbr2Var = image.expression(
-    "(SWIR1 - SWIR2) / (SWIR1 + SWIR2)",
-    {
-    SWIR1: image.select("SWIR1"),
-    SWIR2: image.select("SWIR2"),
-    });
-  return image
-    .addBands(nbr2Var
-    .rename('NBR2'))
-    .float();
-}
+// // uncomment code below to add nbr2 to list     // NBR2 (Normalized Burn Ratio 2): Burn & Fire Index.
+                                                   // A modification of the NBR, useful in postfire recovery studies, highlights vegetation with high water content. 
+// function nbr2(image) {                   
+//   var nbr2Var = image.expression(
+//     "(SWIR1 - SWIR2) / (SWIR1 + SWIR2)",
+//     {
+//     SWIR1: image.select("SWIR1"),
+//     SWIR2: image.select("SWIR2"),
+//     });
+//   return image
+//     .addBands(nbr2Var
+//     .rename('NBR2'))
+//     .float();
+// }
 
 function ndwi(image) {
   var ndwiVar = image.expression(
@@ -825,6 +917,45 @@ function ndwi(image) {
   return image
     .addBands(ndwiVar
     .rename('NDWI'))
+    .float();
+}
+
+function gndvi(image) {
+  var gndviVar = image.expression(
+   "(NIR - GREEN) / (NIR + GREEN)",
+    {
+   NIR: image.select("NIR"),
+   GREEN: image.select("G"),
+    });
+  return image
+    .addBands(gndviVar
+    .rename('GNDVI'))
+    .float();
+}
+
+function ndbi(image) {
+  var ndbiVar = image.expression(
+    "(SWIR1 - NIR)/(SWIR1 + NIR)",
+    {
+    SWIR1: image.select("SWIR1"),
+    NIR: image.select("NIR"),
+    });
+  return image
+    .addBands(ndbiVar
+    .rename('NDBI'))
+    .float();
+}
+
+function ndsi(image) {
+  var ndsiVar = image.expression(
+    "(GREEN - SWIR1)/(GREEN + SWIR1)",
+    {
+    GREEN: image.select("G"),
+    SWIR1: image.select("SWIR1"),
+    });
+  return image
+    .addBands(ndsiVar
+    .rename('NDSI'))
     .float();
 }
 /**************************
@@ -876,6 +1007,11 @@ var styleBt = {stretch: 'horizontal', position: 'bottom-left',
 var styleBtonCh = {stretch: 'horizontal', position: 'top-left', 
     backgroundColor: 'rgba(0,0,0,0.9)',
   };
+  
+ var styleLink = {
+    margin: '4px 8px', fontSize: '12px', fontWeight: '100',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', color: 'FFF'
+};
 
 
 /*********************************
@@ -1065,6 +1201,22 @@ var medianBt = ui.Button({
           reducerString = "_median";
           reducers = ee.Reducer.median();
           compositeLabel.setValue("Selected composite method is median");
+          
+    
+        // Change the button's style to add a border
+        medianBt.style().set({
+            border: '3px solid #1E90FF', 
+        });
+        
+        meanBt.style().set({
+          border: '3px solid rgba(0,0,0,0.0)'
+        })
+        
+        stdBt.style().set({
+          border: '3px solid rgba(0,0,0,0.0)'
+        })
+        
+        
         }
         });
 
@@ -1075,6 +1227,19 @@ var stdBt = ui.Button({
           reducerString = "_stdDev";
           reducers = ee.Reducer.stdDev();
           compositeLabel.setValue("Selected composite method is standard deviation");
+          
+                  // Change the button's style to add a border
+        medianBt.style().set({
+            border: '3px solid rgba(0,0,0,0.0)'
+        });
+        
+        meanBt.style().set({
+          border: '3px solid rgba(0,0,0,0.0)'
+        })
+        
+        stdBt.style().set({
+          border: '3px solid #1E90FF'
+        })
 
         }
         });
@@ -1086,6 +1251,21 @@ var meanBt = ui.Button({
           reducerString = "_mean";
           reducers = ee.Reducer.mean();
           compositeLabel.setValue("Selected composite method is mean");
+          
+                           // Change the button's style to add a border
+        medianBt.style().set({
+            border: '3px solid rgba(0,0,0,0.0)'
+        });
+        
+        meanBt.style().set({
+          border: '3px solid #1E90FF'
+        })
+        
+        stdBt.style().set({
+          border: '3px solid rgba(0,0,0,0.0)'
+        })
+          
+          
         }
         });
 
@@ -1126,6 +1306,17 @@ var selectCombi = ui.Select({
 
       
     if (selectedDataset == 'LS_89') {
+      var nrOfImg = checkNumberOfImagesL89(startYear,endYear,startMonth,endMonth,maxCloudProbability) 
+           if (ee.Number(nrOfImg).getInfo() == 0){
+             print("Warning: no scene available for selected time frame. \nPlease increase the maximum cloud cover value \nor extend the month range.")
+             Map.remove(warningPanel);
+             warningPanel.clear()
+             warningPanel.add(warningLabel1)
+             warningPanel.add(warningLabel2)
+             warningPanel.add(clearResultPanel)
+             Map.add(warningPanel)}
+             else{
+               
            var annualImCol = processingLS89(startYear,endYear,startMonth,endMonth,maxCloudProbability)
                                                      .map(function(img){return img.clip(selFeature)});
            var annualImColList = annualImCol.toList(annualImCol.size());
@@ -1146,9 +1337,20 @@ var selectCombi = ui.Select({
                           "_months_" +String(startMonth.getInfo())+"_" +String(endMonth.getInfo())+"_"+
                           compName.getInfo() );
               });
-           });
+           }); }
       } else if (selectedDataset == 'S2'){
-           var annualImColS2 = filterAndMaskS2(startYear,endYear,startMonth,endMonth,maxCloudProbability)
+           var nrOfImg = checkNumberOfImagesS2(startYear,endYear,startMonth,endMonth,maxCloudProbability) 
+           if (ee.Number(nrOfImg).getInfo() == 0){ 
+             print("Warning: no scene available for selected time frame. \nPlease increase the maximum cloud cover value \nor extend the month range.")
+             Map.remove(warningPanel);
+             warningPanel.clear()
+             warningPanel.add(warningLabel1)
+             warningPanel.add(warningLabel2)
+             warningPanel.add(clearResultPanel)
+             Map.add(warningPanel)
+             
+           } else {
+             var annualImColS2 = filterAndMaskS2(startYear,endYear,startMonth,endMonth,maxCloudProbability)
                                                      .map(function(img){return img.clip(selFeature)});
                                                       
            var annualImColListS2 = annualImColS2.toList(annualImColS2.size());
@@ -1170,8 +1372,22 @@ var selectCombi = ui.Select({
                           compName.getInfo() );
               });
            });
+           }
+           
         
       } else if (selectedDataset == 'LS_all'){
+        var nrOfImg = checkNumberOfImagesLS(startYear,endYear,startMonth,endMonth) 
+        if (ee.Number(nrOfImg).getInfo() == 0){ 
+             print("Warning: no scene available for selected time frame. \nPlease increase the maximum cloud cover value \nor extend the month range.")
+             Map.remove(warningPanel);
+             warningPanel.clear()
+             warningPanel.add(warningLabel1)
+             warningPanel.add(warningLabel2)
+             warningPanel.add(clearResultPanel)
+             Map.add(warningPanel)
+             
+           } else{
+        
            var annualImCol = mergeLandsat(startYear,endYear,startMonth,endMonth)
                                                      .map(function(img){return img.clip(selFeature)});
            var annualImColList = annualImCol.toList(annualImCol.size());
@@ -1193,7 +1409,7 @@ var selectCombi = ui.Select({
                           compName.getInfo() );
               });
            });
-           
+           }
       }
   }
 });
@@ -1205,7 +1421,7 @@ var selectMappingPanel= ui.Panel({
 
 
 var selectIndex = ui.Select({
-  placeholder: 'Select a vegetation index to visualize',
+  placeholder: 'Select a spectral index to visualize',
   style: styleButtons,
   items: Object.keys(indexDic),
   onChange: function(key) {
@@ -1236,6 +1452,17 @@ var selectIndex = ui.Select({
     palette: palette
     };  
       if (selectedDataset == 'LS_89') {
+        var nrOfImg = checkNumberOfImagesL89(startYear,endYear,startMonth,endMonth,maxCloudProbability)
+        if (ee.Number(nrOfImg).getInfo() == 0){ 
+             print("Warning: no scene available for selected time frame. \nPlease increase the maximum cloud cover value \nor extend the month range.")
+             Map.remove(warningPanel);
+             warningPanel.clear()
+             warningPanel.add(warningLabel1)
+             warningPanel.add(warningLabel2)
+             warningPanel.add(clearResultPanel)
+             Map.add(warningPanel)
+             
+           } else {
     
            var annualImCol = processingLS89(startYear,endYear,startMonth,endMonth,maxCloudProbability)
                                           .map(function(img){return img.clip(selFeature)});
@@ -1253,8 +1480,20 @@ var selectIndex = ui.Select({
                             +"_"+selectedIndex
                             );
               });
-           });
+           }); }
       } else if (selectedDataset == 'S2'){
+            var nrOfImg = checkNumberOfImagesS2(startYear,endYear,startMonth,endMonth,maxCloudProbability) 
+           if (ee.Number(nrOfImg).getInfo() == 0){ 
+             print("Warning: no scene available for selected time frame. \nPlease increase the maximum cloud cover value \nor extend the month range.")
+             Map.remove(warningPanel);
+             warningPanel.clear()
+             warningPanel.add(warningLabel1)
+             warningPanel.add(warningLabel2)
+             warningPanel.add(clearResultPanel)
+             Map.add(warningPanel)
+             
+           } else {
+        
            var annualImColS2 = filterAndMaskS2(startYear,endYear,startMonth,endMonth,maxCloudProbability)
                                                      .map(function(img){return img.clip(selFeature)});
           var sampleImg = annualImColS2.first();
@@ -1275,8 +1514,20 @@ var selectIndex = ui.Select({
                             +"_"+selectedIndex);
               });
            });
-        
+           }
       } else if (selectedDataset == 'LS_all'){
+         var nrOfImg = checkNumberOfImagesLS(startYear,endYear,startMonth,endMonth) 
+         if (ee.Number(nrOfImg).getInfo() == 0){ 
+             print("Warning: no scene available for selected time frame. \nPlease increase the maximum cloud cover value \nor extend the month range.")
+             Map.remove(warningPanel);
+             warningPanel.clear()
+             warningPanel.add(warningLabel1)
+             warningPanel.add(warningLabel2)
+             warningPanel.add(clearResultPanel)
+             Map.add(warningPanel)
+             
+           } else {
+
 
           var annualImCol = mergeLandsat(startYear,endYear,startMonth,endMonth)
                                           .map(function(img){return img.clip(selFeature)});
@@ -1295,8 +1546,8 @@ var selectIndex = ui.Select({
               });
            });
       }
-  }
-});
+  } 
+}});
 
 
 var mappingIndexPanel= ui.Panel({
@@ -1337,7 +1588,7 @@ function makeLegend(low, mid, high, palette) {
 }
 
 var colorLegendTitle = ui.Label({
-  value: 'Vegetation Index Legend',
+  value: 'Spectral Index Legend',
   style: styleLabelsWhite
 });
 
@@ -1354,53 +1605,54 @@ var exportScaleLabel = ui.Label({
   style: styleLabelsWhite
 });
   
-var res10Bt = ui.Button({
-        label:'10m (S2)',
+var defaultBt = ui.Button({
+        label:'default resolution',
         style: styleButtons,
         onClick: function() {
-          exportScale = ee.Number(10);
 
-          if (selectedDataset != 'S2'){
-            exportScaleLabel.setValue("Selected dataset is Landsat. Possible highest resolution is 30m.")
+          if (selectedDataset != 'S2' ){
+            exportScale = ee.Number(30) 
+            exportScaleLabel.setValue("Selected resolution is 30m (Landsat)")
           } else {
-            exportScaleLabel.setValue("Selected resolution is 10m")
+            exportScale = ee.Number(10) 
+            exportScaleLabel.setValue("Selected resolution is 10m (Sentinel-2)")
           }
+          exportScaleClicked = true; 
+          defaultBt.style().set({
+          border: '3px solid #1E90FF'
+        })
+        selfResBt.style().set({
+          border: '3px solid rgba(0,0,0,0.0)'
+        })
+
         }
         });
-function changeBgColor() {
-    res10Bt.style().set('backgroundColor', 'green');
-}
-
-res10Bt.onClick(changeBgColor);
-
-var res30Bt = ui.Button({
-        label:'30m (LS)',
+        
+var selfResBt = ui.Button({
+        label:'User defined resolution:',
         style: styleButtons,
         onClick: function() {
-          exportScale = ee.Number(30);
-          exportScaleLabel.setValue("Selected resolution is 30m")
+          exportScaleClicked = false; 
+          selfResBt.style().set({
+          border: '3px solid #1E90FF'
+        })
+        defaultBt.style().set({
+          border: '3px solid rgba(0,0,0,0.0)'
+        })
+        exportScaleLabel.setValue("User defined resolution is selected")
+        
         }
         });
 
-var res60Bt = ui.Button({
-        label:'60m',
-        style: styleButtons,
-        onClick: function() {
-          exportScale = ee.Number(60);
-          exportScaleLabel.setValue("Selected resolution is 60m")
-        }
-        });
+var selfResText = ui.Textbox({
+  placeholder: 'Resolution',  
+  value: '100',
+  style: {padding: '3px 0px 0px 0px', width: '60px', color: '#5b5b5b', fontSize: '13px',
+  fontWeight: '500', backgroundColor: 'rgba(0,0,0,0.0)'},
+});
 
-var res100Bt = ui.Button({
-        label:'100m',
-        style: styleButtons,
-        onClick: function() {
-          exportScale = ee.Number(100);
-          exportScaleLabel.setValue("Selected resolution is 100m")
-        }
-        });
 
-var exportScalePanel = ui.Panel({widgets: [res10Bt,res30Bt,res60Bt,res100Bt],
+var exportScalePanel = ui.Panel({widgets: [defaultBt,selfResBt, selfResText],
                   layout: ui.Panel.Layout.flow('horizontal'),
                   style: {backgroundColor: 'rgba(0,0,0,0.0)'}}); 
   
@@ -1423,6 +1675,16 @@ var wgsBt = ui.Button({
           exportCrsLabel.setValue("Selected coordinate system is WGS 84 (EPSG:4326)")
           exportCrs = "EPSG:4326"
 
+                           // Change the button's style to add a border
+        
+        wgsBt.style().set({
+          border: '3px solid #1E90FF'
+        })
+        
+        utmBt.style().set({
+          border: '3px solid rgba(0,0,0,0.0)'
+        })
+          
 
         }
         });
@@ -1431,6 +1693,15 @@ var utmBt = ui.Button({
         label:'UTM',
         style: styleButtons,
         onClick: function() {
+                  utmBt.style().set({
+          border: '3px solid #1E90FF'
+        })
+        
+        wgsBt.style().set({
+          border: '3px solid rgba(0,0,0,0.0)'
+        })
+          
+          
           exportCrs = ""
           drawingTools.stop();
           var nLayers = drawingTools.layers().length();
@@ -1485,11 +1756,11 @@ var utmBt = ui.Button({
 
 var exportCrsPanel = ui.Panel({widgets: [wgsBt, utmBt],
                   layout: ui.Panel.Layout.flow('horizontal'),
-                  style: {backgroundColor: 'rgba(0,0,0,0.0)'}});   
+                  style: {backgroundColor: 'rgba(0,0,0,0.0)'}});  
 
 // lables for exports 
 var exportLabel1 = ui.Label({
-    value: 'Step 2: Perpare export of annual/seasonal image(s)' ,
+    value: 'Step 2: Prepare export of annual/seasonal image(s)' ,
     style: styleSteps
   });
   
@@ -1498,11 +1769,46 @@ var exportLabel2 = ui.Label({
     style: styleLabelsWhite
   });
 
+/////////////
+var chartPanel = ui.Panel({
+                style: {
+                    position: 'bottom-right',
+                    padding: '5px 5px',
+                    width: '350px',
+                    maxHeight: "80%",
+                    backgroundColor: '#dfe0eb'
+                }
+            });
+var buttonPanel = ui.Panel(
+                [ui.Button('clear', clearResults)],
+               ui.Panel.Layout.Flow('horizontal'), {margin: '0 0 0 auto', backgroundColor: '#dfe0eb'});   
+
+var warningLabel = ui.Label({
+        value: ' Note: "no data" values (NA) are set to zero (0) in export images. Please see "Data Availability" in publication on how to correct this.',
+        style: {
+    fontWeight: 'bold',
+    fontSize: '15px',
+    margin: '5px 5px',
+    color: '#3e4437',
+    backgroundColor: 'rgba(0,0,0,0.0)'
+}
+    })
+
 // Button for exports 
 var annualImageExportDriveButton = ui.Button({
   label: 'Raster export to Google Drive', 
   style: styleButtons,
   onClick: function() {
+    ////////////////
+          
+
+          Map.remove(chartPanel);
+          chartPanel.clear();   
+          chartPanel.add(warningLabel);
+          //chartPanel.add(buttonPanel);
+
+          Map.add(chartPanel);
+     ////////////////     
       drawingTools.stop(); 
       
       // study area 
@@ -1537,11 +1843,29 @@ var annualImageExportDriveButton = ui.Button({
       
       // if selected datasets are landsat 8 and 9 
       if (selectedDataset == 'LS_89') {
+        var nrOfImg = checkNumberOfImagesL89(startYear,endYear,startMonth,endMonth,maxCloudProbability) 
+           if (ee.Number(nrOfImg).getInfo() == 0){ 
+             print("Warning: no scene available for selected time frame. \nPlease increase the maximum cloud cover value \nor extend the month range.")
+             Map.remove(warningPanel);
+             warningPanel.clear()
+             warningPanel.add(warningLabel1)
+             warningPanel.add(warningLabel2)
+             warningPanel.add(clearResultPanel)
+             Map.add(warningPanel)
+           } else { 
         // set the resolution 
+        /**
         if (exportScale) {
+          
               var resolution = exportScale;
         } else {
               var resolution = ee.Number(30);
+        }
+        */
+        if (exportScaleClicked){
+              var resolution = exportScale;
+        } else {
+              var resolution = ee.Number.parse(selfResText.getValue());
         }
         // landsat does not have rededge1 or 4 bands. 
         // so deactivate two bands to export 
@@ -1572,15 +1896,35 @@ var annualImageExportDriveButton = ui.Button({
             crs: exportCrs,
             maxPixels: maxPixels        
             });
-        }
+        } }
       // if selected datasets are sentinel-2 
       } else if (selectedDataset == 'S2'){
         // set default resolution (10m)
+        /**
         if (exportScale) {
               var resolution = exportScale;
         } else {
               var resolution = ee.Number(10);
         }
+        */
+        if (exportScaleClicked){
+              var resolution = exportScale;
+              
+        } else {
+              var resolution = ee.Number.parse(selfResText.getValue());
+
+        }
+        
+           var nrOfImg = checkNumberOfImagesS2(startYear,endYear,startMonth,endMonth,maxCloudProbability) 
+           if (ee.Number(nrOfImg).getInfo() == 0){ 
+             print("Warning: no scene available for selected time frame. \nPlease increase the maximum cloud cover value \nor extend the month range.")
+             Map.remove(warningPanel);
+             warningPanel.clear()
+             warningPanel.add(warningLabel1)
+             warningPanel.add(warningLabel2)
+             warningPanel.add(clearResultPanel)
+             Map.add(warningPanel)
+           } else { 
            // process the sentinel-2 images 
            var AnnualImColS2 = filterAndMaskS2(startYear,endYear,startMonth,endMonth,maxCloudProbability);
            var exportColS2 = renewValidPixel(AnnualImColS2);
@@ -1604,19 +1948,37 @@ var annualImageExportDriveButton = ui.Button({
               maxPixels: maxPixels        
               });
           }
- 
+           }
      // if selected datasets are landsat 5,7,8,9
       } else if (selectedDataset == 'LS_all'){
+        var nrOfImg = checkNumberOfImagesLS(startYear,endYear,startMonth,endMonth) 
+           if (ee.Number(nrOfImg).getInfo() == 0){ 
+             print("Warning: or extend available for selected time frame. \nPlease increase the maximum cloud cover value \nor extend the month range.")
+             Map.remove(warningPanel);
+             warningPanel.clear()
+             warningPanel.add(warningLabel1)
+             warningPanel.add(warningLabel2)
+             warningPanel.add(clearResultPanel)
+             Map.add(warningPanel)
+           } else { 
         // set the resolution
+        /**
         if (exportScale) {
               var resolution = exportScale;
         } else {
               var resolution = ee.Number(30);
+        }*/
+        if (exportScaleClicked){
+              var resolution = exportScale;
+              
+        } else {
+              var resolution = ee.Number.parse(selfResText.getValue());
+             
         }
 
           doTheseIndices = ee.List(doTheseIndices).remove("RedEdge1");
           doTheseIndices = ee.List(doTheseIndices).remove("RedEdge4");
-          // filter by time and sutdy area and add vegetation indcies 
+          // filter by time and sutdy area and add spectral indcies 
            var annualImColLandsatMerged = mergeLandsat(startYear, endYear,startMonth,endMonth);
            var exportColLandsatMerged = renewValidPixel(annualImColLandsatMerged);
            exportColLandsatMerged = exportColLandsatMerged.select(doTheseIndices)
@@ -1648,13 +2010,14 @@ var annualImageExportDriveButton = ui.Button({
       
   }
   
-});
+}});
 
   
 var annualExportDrivePanel= ui.Panel({
   widgets: [annualImageExportDriveButton],
   layout: ui.Panel.Layout.flow('horizontal'),
   style: styleButtonPanels}); 
+  
 
 /********************
 *******Notes panel*******/
@@ -1729,6 +2092,19 @@ var exportBandLabel = ui.Label({
   value: 'Please select required bands: ', 
   style: styleLabelsWhite});
   
+var spectralBandsLabel = ui.Label({
+  value: 'Spectral bands ', 
+  style: styleLabelsWhite});
+
+var spectralIndicesLabel = ui.Label({
+  value: 'Spectral Indices ', 
+  style: styleLabelsWhite});
+  
+var qualityAssessmentLabel = ui.Label({
+  value: 'Quality assessment ', 
+  style: styleLabelsWhite});
+  
+   
 var indexBox = [];
 
 indexList.forEach(function(name, index) {
@@ -1736,22 +2112,53 @@ var checkBox = ui.Checkbox({label:name[0],style:styleBandButtons});
 indexBox.push(checkBox);
 });    
 
-var indexPanelLabel = ui.Label('Select Indices', {fontWeight : 'bold'});
 var indexPanel = ui.Panel(
   [
-    ui.Panel([indexBox[0], indexBox[4], indexBox[8], indexBox[12], indexBox[16]], null, 
+    ui.Panel([indexBox[0], indexBox[4] ], null, 
     {stretch: 'horizontal',backgroundColor: 'rgba(0,0,0,0.5)',}),
-    ui.Panel([indexBox[1], indexBox[5], indexBox[9], indexBox[13],indexBox[17]], null, 
+    ui.Panel([indexBox[1], indexBox[5]], null, 
     {stretch: 'horizontal',backgroundColor: 'rgba(0,0,0,0.5)',}),
-    ui.Panel([indexBox[2], indexBox[6], indexBox[10], indexBox[14]], null, 
+    ui.Panel([indexBox[2], indexBox[6]], null, 
    {stretch: 'horizontal',backgroundColor: 'rgba(0,0,0,0.5)',}),
-    ui.Panel([indexBox[3], indexBox[7], indexBox[11], indexBox[15]], null,
+    ui.Panel([indexBox[3], indexBox[7]], null,
+    {stretch: 'horizontal',backgroundColor: 'rgba(0,0,0,0.5)',}),
+   
+  ],
+  ui.Panel.Layout.Flow('horizontal'), {stretch: 'horizontal'}
+);
+var indexPanel2 = ui.Panel(
+  [
+    ui.Panel([indexBox[8], indexBox[12], indexBox[16]], null, 
+    {stretch: 'horizontal',backgroundColor: 'rgba(0,0,0,0.5)',}),
+    ui.Panel([indexBox[9], indexBox[13], indexBox[17]], null, 
+    {stretch: 'horizontal',backgroundColor: 'rgba(0,0,0,0.5)',}),
+    ui.Panel([indexBox[10], indexBox[14], indexBox[18]], null, 
+   {stretch: 'horizontal',backgroundColor: 'rgba(0,0,0,0.5)',}),
+    ui.Panel([indexBox[11], indexBox[15]
+    // Uncomment below to add new check box for nbr2. Don't forget to adjust the number in indexPanel3 accordingly!
+    //,indexBox[19]     //     
+    ], null,                
     {stretch: 'horizontal',backgroundColor: 'rgba(0,0,0,0.5)',}),
    
   ],
   ui.Panel.Layout.Flow('horizontal'), {stretch: 'horizontal'}
 );
 
+
+var indexPanel3 = ui.Panel(
+  [
+    ui.Panel([indexBox[19]], null,    // -> change number to 20 when adding nbr2!
+    {stretch: 'horizontal',backgroundColor: 'rgba(0,0,0,0.5)',}),
+    ui.Panel([], null, 
+    {stretch: 'horizontal',backgroundColor: 'rgba(0,0,0,0.5)',}),
+    ui.Panel([], null, 
+   {stretch: 'horizontal',backgroundColor: 'rgba(0,0,0,0.5)',}),
+    ui.Panel([], null,
+    {stretch: 'horizontal',backgroundColor: 'rgba(0,0,0,0.5)',}),
+   
+  ],
+  ui.Panel.Layout.Flow('horizontal'), {stretch: 'horizontal'}
+);
 // set default export bands 
 indexBox[0].setValue(1);
 indexBox[1].setValue(1);
@@ -1760,9 +2167,47 @@ indexBox[3].setValue(1);
 indexBox[8].setValue(1);
 indexBox[4].setValue(1);
 indexBox[5].setValue(1);
-indexBox[17].setValue(1);
+indexBox[19].setValue(1);
 
 
+// ------ warning pop up 
+function clearResults() {
+          Map.remove(warningPanel);
+}
+var clearResultPanel = ui.Panel(
+                [ui.Button('Hide me', clearResults)],
+               ui.Panel.Layout.Flow('horizontal'), 
+               {margin: '0 0 0 100', maxWidth: '80%',backgroundColor: 'rgba(0,0,0,0.0)'});   
+               
+var warningLabel1 = ui.Label({
+            value: 'Warning:', 
+            style: {
+                fontSize: '17px',
+                fontWeight: '900',
+                margin: '5px',
+                backgroundColor: 'rgba(0,0,0,0.0)',
+                color: 'red', // Only "Warning:" is red
+            }
+        })
+var warningLabel2 = ui.Label({
+            value: 'Warning: no scene available for selected time frame. \nPlease increase the maximum cloud cover value \nor extend the month range.',
+            style: {
+                fontSize: '15px',
+                fontWeight: '900',
+                margin: '5px',
+                backgroundColor: 'rgba(0,0,0,0.0)',
+                color: 'black' // Rest of the text is black
+            }
+        })
+var warningPanel = ui.Panel({
+    style: {
+        position: 'middle-right',
+        padding: '5px 5px',
+        maxWidth: "80%",
+        maxHeight: "80%",
+        backgroundColor: 'rgba(255,255,255,0.8)',
+    }
+});
 /**********************************/
 
 // All all widgets to panel
@@ -1783,7 +2228,12 @@ var controlPanel = ui.Panel({
             selectPanelMonth,
             maxCloudPanel,
             exportBandLabel,
+            spectralBandsLabel,
             indexPanel, //***
+            spectralIndicesLabel, 
+            indexPanel2,
+            qualityAssessmentLabel,
+            indexPanel3,
             compositeLabel,
             selectReducerPanel,
             //selfVisLabel,
@@ -1807,8 +2257,9 @@ var controlPanel = ui.Panel({
         ui.Label({value:' ', style:styleP}),   
 
         ui.Label({value:'Project institute: Leibniz Institute for Zoo and Wildlife Research, Department of Ecological Dynamics (Berlin)', style:styleP}),   
-        ui.Label({value:'Workflow author : L.P', style:styleP}),   
-        ui.Label({value:'App/UI author : H.K', style:styleP}),
+        ui.Label({value:'Workflow author : Luisa Pflumm (l-pflumm@web.de)', style:styleP}),   
+        ui.Label({value:'App/UI author : Hyeonmin Kang (kang@nadar.earth)', style:styleP}),
+        ui.Label({value:'Link to Manuscript (currently preprint)', targetUrl: 'https://eartharxiv.org/repository/view/6364/ ', style:styleLink}),
     
             ],
   style: styleControlPanel});
