@@ -209,14 +209,16 @@ You should keep this in mind when exporting image composites from or visualizing
 Band name | Full name | Formula | Interpretation
 --- | --- | --- | ---
 NDVI | Normalized Difference Vegetation Index | (NIR-Red)(NIR+Red) | Highlights density  and health of photosynthetically active vegetation. Tends to saturate in densely vegetated areas. Sensitive to the contribution of soil brightness and atmospheric effects. 
-EVI2 | Enhanced Vegetation Index 2 | 2,4*(NIR-Red)(NIR+Red+1) | Highlights photosynthetically active vegetation, but does not saturate in densely vegetated areas. Accounts for soil brightness variation. Less affected by atmospheric effects than NDVI and EVI. 
+EVI | Enhanced Vegetation Index | 2.5 * (NIR - Red) / (NIR + 6 * Red - 7.5 * Blue + 1) | Highlights photosynthetically active vegetation, but does not saturate in densely vegetated areas. Accounts for soil brightness variation. Less affected by atmospheric effects than NDVI.
 SAVI | Soil-Adjusted Vegetation Index | (NIR-Red)(NIR+Red+L)*(1+L) | Highlights photosynthetically active vegetation and accounts for soil brightness variation. 
 MSAVI | Modified Soil-Adjusted Vegetation Index | (NIR-Red)(NIR+Red+L0) *(1+L0) | Modified version of SAVI to further minimize the soil background influences on the vegetation signal.
+GNDVI | Green Normalised Difference Vegetation Index | (NIR-Green)/(NIR+Green) | Highlights the density and health of photosynthetically active vegetation. It is sensitive to chlorophyll content, making it effective for assessing green crop biomass. May saturate in dense vegetation but is generally less influenced by soil brightness and atmospheric effects compared to NDVI.
 NDMI | Normalized Difference Moisture Index | (NIR-SWIR1)(NIR+SWIR1) | Sensitive to moisture levels  in vegetation and soil. Useful for vegetation analyses, for identifying areas prone to drought stress or excess moisture.
-NBR | Normalized Burn Ratio | (NIR-SWIR2)(NIR+SWIR2) | Detects and quantifies burnt areas. In general, low NBR values indicate recently burnt areas and bare ground. 
-NBR2 | Normalized Burn Ratio 2 | (SWIR1-SWIR2)(SWIR1+SWIR2) | A modification of the NBR, useful in postfire recovery studies, highlights vegetation with high water content.
-BSI | Bare Soil Index | (SWIR1+Red)-(NIR+Blue)(SWIR1+Red)+(NIR+Blue) | Highlights bare ground and rock surfaces. Useful in identification of soil erosion, land degradation, and urbanization processes.
 NDWI | Normalized Difference Water Index | (Green-NIR)(Green+NIR) | Sensitive to water bodies. Useful for water resource management, wetland monitoring, and flood assessment. 
+NBR | Normalized Burn Ratio | (NIR-SWIR2)(NIR+SWIR2) | Detects and quantifies burnt areas. In general, low NBR values indicate recently burnt areas and bare ground. 
+BSI | Bare Soil Index | (SWIR1+Red)-(NIR+Blue)(SWIR1+Red)+(NIR+Blue) | Highlights bare ground and rock surfaces. Useful in identification of soil erosion, land degradation, and urbanization processes.
+NDBI | Normalised Difference Built-up Index | (SWIR1-NIR)/(SWIR1+NIR) | Highlights built-up and urban areas by contrasting impervious surfaces with vegetation. Higher NDBI values indicate the presence of buildings and other man-made structures.
+NDSI | Normalised Difference Snow Index | (Green-SWIR1)/(Green+SWIR1( | Detects snow cover by differentiating snow from clouds and other land surfaces. High NDSI values indicate snow-covered areas, making it useful for monitoring snow extent and water resource management.
 
 
 
