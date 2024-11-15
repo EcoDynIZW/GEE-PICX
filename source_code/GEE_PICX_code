@@ -1,31 +1,41 @@
-      /************************************************************************************* 
-      * App script:  GEE-PICX: Phenological Imaging and Cloud-free Xport                   *
-      * Description:                                                                       *
-      * - GEE-PICX allows generating and exporting cloud-free and analysis-ready           *
-      *    composites of satellite images (Landsat or Sentinel-2) for user-defined         * 
-      *    areas and time steps                                                            *
-      * - GEE-PICX follows four design principles:                                         *
-      *   1. Flexibility of user input.                                                    *
-      *       Users have control over choice of satellite platform, study area boundaries, *
-      *       time range, maximum cloud cover (for single images), aggregation mode,       *
-      *       export image resolution, coordinate reference system,                        *
-      *       and image bands. Data coverage is global.                                    *
-      *   2. Ease of use.                                                                  *
-      *       The application features a self-explanatory interface, requires only a       *
-      *       Google account and internet connection, and has no hardware or software      *
-      *       requirements thanks to server-side processing.                               *
-      *   3. Export of large data sets.                                                    *
-      *       Only limited by Google drive storage capacity.                               *
-      *   4. Generate analysis-ready data.                                                 *
-      *       Generates cloud-free image mosaics with optional band information.           *
-      *       They can contain spectral bands (from visible light to short-wave infrared), *
-      *       spectral indices, and a valid pixel band for quality assessment.             *
-      * - Users can request export of imagery from multiple years and/or narrow the        *
-      *    selection to specific consecutive months (also crossing the year boundary)      *
-      *    to create seasonal image aggregates.                                            *
-      * - The more extensive the time range or the study area, the longer it can take      *
-      *    to export the data.                                                             *
-      **************************************************************************************
+      /***************************************************************************************
+      * App script:     GEE-PICX: Phenological Imaging and Cloud-free Xport                  *
+      * Script Authors: Luisa Pflumm, Hyeonmin Kang                                          *
+      * Date:           15.11.2024                                                           *
+      * Contact:        l-pflumm@web.de, kang@nadar.earth                                    *
+      * Code License: Apache 2.0                                                             *
+      * Description:                                                                         *
+      * - GEE-PICX allows generating and exporting cloud-free and analysis-ready             *
+      *    composites of satellite images (Landsat or Sentinel-2) for user-defined           *
+      *    areas and time steps                                                              *
+      * - GEE-PICX follows five design principles:                                           *
+      *   1. Flexibility of user input.                                                      *
+      *       Users can select the satellite platform (Landsat or Sentinel-2), study area    *
+      *       boundaries, time range, maximum cloud cover (for single images), aggregation   *
+      *       mode, and image bands. Relevant scenes are automatically selected from the     *
+      *       data catalogue according to user input. Moreover, the modular design allows    *
+      *       users to easily add custom indices.                                            *
+      *   2. Ease of use. The application features a self-explanatory graphical user         *
+      *       interface. It only requires a Google account, web browser, and internet        *
+      *       connection, with no additional hardware or software requirements due to        *
+      *       server-side processing.                                                        *
+      *   3. Export of large data sets. Export size is limited only by Google drive storage  *
+      *       capacity.                                                                      *
+      *   4. Generation of analysis-ready data. Produces cloud-free image composites with    *
+      *       spectral bands, spectral indices, and a quality assessment band (valid scenes  *
+      *       per pixel). Export image resolution and coordinate reference system are        *
+      *       customizable.                                                                  *
+      *   5. Data visualisation. Data sets can be visualised in the browser prior to export. *
+      * - Note: Users can request export of imagery from multiple years and/or narrow the    *
+      *    selection to specific consecutive months (also crossing the year boundary)        *
+      *    to create seasonal image aggregates.                                              *
+      * - Note: The more extensive the time range or the study area, the longer it can take  *
+      *    to export the data. Visualization in App might fail when too large.               *
+      ****************************************************************************************
+
+     ---------->>>>>> Click "Run" above this code editor window to start App! <<<<<<----------
+     ---------->>>>>> ------------------------------------------------------- <<<<<<----------
+     ---------->>>>>> No need to change code below, work with user interface. <<<<<<----------
 
 /*****************************
  ****** Global variables *****
