@@ -7,10 +7,11 @@
 **GEE-PICX is a Google Earth Engine web application for generating and exporting cloud-free and analysis-ready composites of satellite images for user-defined areas and time steps with global data coverage.**
 
 We followed four design principles in developing GEE-PICX:
-1. **Flexibility of user input.** Users have control over choice of satellite platform (Landsat or Sentinel-2), study area boundaries, time range, maximum cloud cover (for single images), aggregation mode, and image bands. Relevant images are automatically selected from the data catalog according to user input.
-2. **Ease of use.** The application features a self-explanatory interface, requires only a Google account, a web browser and internet connection, and has no hardware or software requirements thanks to server-side processing.
-3. **Export of large data sets.** Only limited by Google drive storage capacity.
-4. **Generate analysis-ready data.** Generates cloud-free image mosaics with spectral bands, spectral indices, and a valid-pixel band for quality assessment (more info see [Appendix](#5-Appendix)). Export image resolution and coordinate reference system are customizable.
+1. **Flexibility of user input.** Users can select the satellite platform (Landsat or Sentinel-2), study area boundaries, time range, maximum cloud cover (for single images), aggregation mode, and image bands. Relevant scenes are automatically selected from the data catalogue according to user input. Moreover, the modular design allows users to easily add custom indices.
+2. **Ease of use.** The application features a self-explanatory graphical user interface. It only requires a Google account, web browser, and internet connection, with no additional hardware or software requirements due to server-side processing.
+3. **Export of large data sets.** Export size is limited only by Google drive storage capacity.
+4. **Generation of analysis-ready data.** Produces cloud-free image composites with spectral bands, spectral indices, and a quality assessment band (valid scenes per pixel, more info see [Appendix](#5-Appendix)). Export image resolution and coordinate reference system are customizable.
+5. **Data visualisation.** Data sets can be visualised in the browser prior to export.
 
 The application allows users without experience in remote sensing to generate cloud-free and analysis-ready image composites for custom study areas and points in time for a multitude of applications in ecology and beyond. 
 
@@ -33,7 +34,7 @@ Below you can find a find step-by-step tutorial on how to open and work in the a
 <img src="https://github.com/Luisa-del/GEE-PICX/blob/main/img/open_app.png">
 
 * Option 1: Add the GEE-PICX repository to your Google Earth Engine account by clicking on [this link](https://code.earthengine.google.com/?accept_repo=users/gisizw/GEE-PICX), and it will appear under the "Reader" tab in the left window. *Code License: Apache 2.0.*
-* Option 2: Follow [this link](https://code.earthengine.google.com/6e9064d5307aaede21688ac50c91515a) to directly open the application in Google Earth Engine's code editor mode.
+* Option 2: Follow [this link](https://code.earthengine.google.com/67d182c03dcda9fa2fdbaf131590d2ce) to directly open the application in Google Earth Engine's code editor mode.
 * Option 3: Copy the source code from [here](https://github.com/EcoDynIZW/GEE-PICX/blob/main/source_code/GEE_PICX_code) and paste it to Google Earth Engine's code editor.
 
 Note: If the grey application interface does not appear next to the map, you need to hit "Run" on top the code editor to start the application.
