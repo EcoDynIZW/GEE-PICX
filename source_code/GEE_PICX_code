@@ -2269,7 +2269,7 @@ var controlPanel = ui.Panel({
         ui.Label({value:'Project institute: Leibniz Institute for Zoo and Wildlife Research, Department of Ecological Dynamics (Berlin)', style:styleP}),   
         ui.Label({value:'Workflow author : Luisa Pflumm (l-pflumm@web.de)', style:styleP}),   
         ui.Label({value:'App/UI author : Hyeonmin Kang (kang@nadar.earth)', style:styleP}),
-        ui.Label({value:'Link to Manuscript (currently preprint)', targetUrl: 'https://eartharxiv.org/repository/view/6364/ ', style:styleLink}),
+        ui.Label({value:'Link to Manuscript (Pflumm et al. 2025) ', targetUrl: 'https://doi.org/10.1111/ecog.07385 ', style:styleLink}),
     
             ],
   style: styleControlPanel});
