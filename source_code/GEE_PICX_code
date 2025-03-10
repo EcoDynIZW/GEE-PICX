@@ -1814,7 +1814,7 @@ var annualImageExportDriveButton = ui.Button({
 
           Map.remove(chartPanel);
           chartPanel.clear();   
-          chartPanel.add(warningLabel);
+          //chartPanel.add(warningLabel);
           //chartPanel.add(buttonPanel);
 
           Map.add(chartPanel);
@@ -1904,7 +1904,10 @@ var annualImageExportDriveButton = ui.Button({
             region: selFeature,
             scale: resolution.getInfo(),
             crs: exportCrs,
-            maxPixels: maxPixels        
+            maxPixels: maxPixels,
+            formatOptions: {
+              noData: ''
+            }         
             });
         } }
       // if selected datasets are sentinel-2 
@@ -1955,7 +1958,10 @@ var annualImageExportDriveButton = ui.Button({
               region: selFeature,
               scale: resolution.getInfo(),
               crs: exportCrs,
-              maxPixels: maxPixels        
+              maxPixels: maxPixels,
+            formatOptions: {
+              noData: ''
+            }         
               });
           }
            }
@@ -2011,7 +2017,10 @@ var annualImageExportDriveButton = ui.Button({
               region: selFeature,
               scale: resolution.getInfo(),
               crs: exportCrs,
-              maxPixels: maxPixels        
+              maxPixels: maxPixels,
+            formatOptions: {
+              noData: ''
+            }         
               });
           }
           
